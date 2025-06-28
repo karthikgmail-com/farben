@@ -13,7 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Quiz Page elements
     const progressIndicator = document.getElementById('progress-indicator');
-    const timerDisplay = document.getElementById('timer');
+    // const timerDisplay = document.getElementById('timer'); // Old text timer
+    const timerSvgProgress = document.getElementById('timer-svg-progress');
+    const timerTextDisplay = document.getElementById('timer-text');
     const quizContent = document.getElementById('quiz-content');
     const submitQuizBtn = document.getElementById('submit-quiz-btn');
 
@@ -22,8 +24,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const percentageDisplay = document.getElementById('percentage');
     const resultMessage = document.getElementById('result-message');
     const incorrectAnswersList = document.getElementById('incorrect-answers-list');
+    const motivationalQuoteElement = document.getElementById('motivational-quote').querySelector('p'); // Get the p tag
     const retakeQuizBtn = document.getElementById('retake-quiz-btn');
     const returnHomeBtn = document.getElementById('return-home-btn');
+
+    // Motivational Quotes
+    const motivationalQuotes = [
+        "The expert in anything was once a beginner.",
+        "Don't watch the clock; do what it does. Keep going.",
+        "The only way to do great work is to love what you do.",
+        "Believe you can and you're halfway there.",
+        "The harder you work for something, the greater you'll feel when you achieve it.",
+        "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+        "Push yourself, because no one else is going to do it for you.",
+        "Your limitation—it’s only your imagination."
+    ];
 
     // Dark Mode Toggle
     const darkModeToggle = document.getElementById('dark-mode-toggle');
@@ -248,14 +263,40 @@ document.addEventListener('DOMContentLoaded', () => {
     function startTimer(durationInSeconds) {
         clearInterval(timerInterval);
         let timeLeft = durationInSeconds;
+        const totalDuration = durationInSeconds;
+
+        const radius = timerSvgProgress.r.baseVal.value;
+        const circumference = 2 * Math.PI * radius;
+        timerSvgProgress.style.strokeDasharray = circumference;
+        timerSvgProgress.style.strokeDashoffset = 0; // Start full
+        timerSvgProgress.classList.remove('warning', 'danger');
+
+
         timerInterval = setInterval(() => {
             const minutes = Math.floor(timeLeft / 60);
             const seconds = timeLeft % 60;
-            timerDisplay.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`; // Simple text timer
+            timerTextDisplay.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+            const progress = timeLeft / totalDuration;
+            timerSvgProgress.style.strokeDashoffset = circumference * (1 - progress);
+
+            if (timeLeft <= totalDuration * 0.25) {
+                timerSvgProgress.classList.add('danger');
+                timerSvgProgress.classList.remove('warning');
+            } else if (timeLeft <= totalDuration * 0.5) {
+                timerSvgProgress.classList.add('warning');
+                timerSvgProgress.classList.remove('danger');
+            } else {
+                timerSvgProgress.classList.remove('warning', 'danger');
+            }
+
             timeLeft--;
             if (timeLeft < 0) {
                 clearInterval(timerInterval);
-                timerDisplay.textContent = "Time's Up!";
+                timerTextDisplay.textContent = "00:00";
+                timerSvgProgress.style.strokeDashoffset = circumference;
+                timerSvgProgress.classList.add('danger');
+                // timerDisplay.textContent = "Time's Up!"; // Old way
                 submitQuiz(true);
             }
         }, 1000);
@@ -303,6 +344,10 @@ document.addEventListener('DOMContentLoaded', () => {
             resultMessage.textContent = "Keep practicing! You can improve.";
         }
 
+        // Display a random motivational quote
+        const randomIndex = Math.floor(Math.random() * motivationalQuotes.length);
+        motivationalQuoteElement.textContent = `"${motivationalQuotes[randomIndex]}"`;
+
         incorrectAnswersList.innerHTML = '';
         let hasIncorrect = false;
         questions.forEach((q, index) => {
@@ -335,7 +380,13 @@ document.addEventListener('DOMContentLoaded', () => {
         userAnswers = new Array(questions.length).fill(null);
         score = 0;
         clearInterval(timerInterval);
-        timerDisplay.textContent = "00:00"; // Reset simple text timer
+        timerTextDisplay.textContent = "00:00"; // Reset new timer text
+        if (timerSvgProgress && timerSvgProgress.r && timerSvgProgress.r.baseVal) { // Check if SVG timer elements exist
+            const radius = timerSvgProgress.r.baseVal.value;
+            const circumference = 2 * Math.PI * radius;
+            timerSvgProgress.style.strokeDashoffset = 0; // Full circle
+            timerSvgProgress.classList.remove('warning', 'danger');
+        }
         quizContent.innerHTML = '';
         resultPage.classList.add('hidden');
         const resultCard = resultPage.querySelector('.card');

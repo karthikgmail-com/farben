@@ -113,3 +113,109 @@ label { /* General label color for dark mode if not overridden by more specific 
 .dark label {
     /* color: #D1D5DB; /* gray-300 */ /* Reverted to rely on HTML for this */
 }
+
+/* SVG Timer Styles */
+#timer-wrapper {
+    /* Sizing is handled by Tailwind classes in HTML (w-20 h-20 sm:w-24 sm:h-24) */
+}
+
+.timer-svg-bg {
+    stroke: #e5e7eb; /* Tailwind gray-200 */
+}
+.dark .timer-svg-bg {
+    stroke: #4b5563; /* Tailwind gray-600 */
+}
+
+.timer-svg-progress {
+    stroke: #3b82f6; /* Tailwind blue-500 */
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.3s linear, stroke 0.3s ease;
+}
+.dark .timer-svg-progress {
+    stroke: #60a5fa; /* Tailwind blue-400 */
+}
+
+.timer-svg-progress.warning {
+    stroke: #f59e0b; /* Tailwind amber-500 */
+}
+.dark .timer-svg-progress.warning {
+    stroke: #fcd34d; /* Tailwind amber-300 */
+}
+
+.timer-svg-progress.danger {
+    stroke: #ef4444; /* Tailwind red-500 */
+    animation: pulseDanger 1s infinite ease-in-out;
+}
+.dark .timer-svg-progress.danger {
+    stroke: #f87171; /* Tailwind red-400 */
+}
+
+#timer-text {
+    /* Text color and font size handled by Tailwind in HTML */
+}
+
+@keyframes pulseDanger {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+/* Result Page Enhancements */
+#score-summary #score, #score-summary #percentage {
+    font-size: 1.75rem; /* text-2xl */
+    color: #3b82f6; /* Tailwind blue-500 */
+    padding: 0.25rem 0.5rem;
+    /* background-color: #eff6ff; /* Tailwind blue-100 */
+    /* border-radius: 0.25rem; */
+}
+.dark #score-summary #score, .dark #score-summary #percentage {
+    color: #60a5fa; /* Tailwind blue-400 */
+    /* background-color: #1e3a8a; /* Tailwind blue-800 */
+}
+
+#result-message {
+    font-size: 1.125rem; /* text-lg */
+    font-weight: 500; /* medium */
+}
+
+/* Icons for review section (if not already perfectly styled from initial build) */
+.user-answer-incorrect::before {
+    content: "✕ "; /* Cross mark */
+    color: #ef4444; /* Tailwind red-500 */
+    font-weight: bold;
+    margin-right: 0.25rem;
+}
+.dark .user-answer-incorrect::before {
+    color: #f87171; /* Tailwind red-400 */
+}
+
+.correct-answer-review::before {
+    content: "✓ "; /* Check mark */
+    color: #10b981; /* Tailwind green-500 */
+    font-weight: bold;
+    margin-right: 0.25rem;
+}
+.dark .correct-answer-review::before {
+    color: #34d399; /* Tailwind green-400 */
+}
+
+/* Styling for each item in the detailed review list */
+#incorrect-answers-list > div {
+    padding: 0.75rem; /* p-3 */
+    margin-bottom: 0.75rem; /* mb-3 */
+    border-left-width: 4px;
+}
+
+#incorrect-answers-list > div .user-answer-incorrect {
+   border-left-color: #ef4444; /* red-500 */
+}
+#incorrect-answers-list > div .correct-answer-review {
+   /* No specific border needed here as it's the correct one */
+}
+
+
+/* Motivational Quote Section */
+#motivational-quote p {
+    /* Tailwind classes in HTML handle this mostly */
+    /* font-style: italic; done in html */
+}
