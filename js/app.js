@@ -1,47 +1,30 @@
-// Placeholder for JavaScript code
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("DOM fully loaded and parsed");
-
     // Page sections
     const homePage = document.getElementById('home-page');
     const quizPage = document.getElementById('quiz-page');
     const resultPage = document.getElementById('result-page');
-    const allPages = [homePage, quizPage, resultPage];
-
-    // Function to switch pages with fade effect
-    function showPage(pageToShow) {
-        allPages.forEach(page => {
-            if (page === pageToShow) {
-                page.classList.remove('hidden');
-                // Delay adding fade-in-active to allow display:none to apply first
-                setTimeout(() => {
-                    page.classList.add('fade-in-active');
-                    page.classList.remove('fade-out-active'); // Ensure it's not trying to fade out
-                }, 20); // Small delay
-            } else {
-                page.classList.add('fade-out-active'); // Optional: for smoother transitions if needed
-                page.classList.remove('fade-in-active');
-                // Add hidden after transition or immediately if not using fade-out for hiding
-                 setTimeout(() => { // If not using CSS to hide after fade-out
-                    if (!page.classList.contains('fade-in-active')) { // double check it's not the page to show
-                        page.classList.add('hidden');
-                    }
-                }, 500); // Match CSS transition duration
-            }
-        });
-    }
-
 
     // Homepage elements
-    const standardSelect = document.getElementById('standard-select');
-    const subjectSelect = document.getElementById('subject-select');
-    const lessonSelect = document.getElementById('lesson-select');
+    const standardSelectionCardsContainer = document.getElementById('standard-selection-cards');
+    const standardSelectInput = document.getElementById('standard-select'); // Hidden input to store value
+
+    const subjectSelectionArea = document.getElementById('subject-selection-area');
+    const subjectSelectionCardsContainer = document.getElementById('subject-selection-cards');
+    const subjectSelectInput = document.getElementById('subject-select'); // Hidden input
+
+    const lessonSelectionArea = document.getElementById('lesson-selection-area');
+    const lessonSelect = document.getElementById('lesson-select'); // Actual select element
+
+    const mixedModeArea = document.getElementById('mixed-mode-area');
     const mixedQuestionsCheckbox = document.getElementById('mixed-questions-checkbox');
     const startQuizBtn = document.getElementById('start-quiz-btn');
 
     // Quiz Page elements
     const progressIndicator = document.getElementById('progress-indicator');
-    const timerDisplay = document.getElementById('timer');
+    // const timerDisplay = document.getElementById('timer'); // Old timer text element
+    const timerWrapper = document.getElementById('timer-wrapper'); // New
+    const timerSvgProgress = document.getElementById('timer-svg-progress'); // New
+    const timerTextDisplay = document.getElementById('timer-text'); // New for text inside SVG
     const quizContent = document.getElementById('quiz-content');
     const submitQuizBtn = document.getElementById('submit-quiz-btn');
 
@@ -52,48 +35,51 @@ document.addEventListener('DOMContentLoaded', () => {
     const incorrectAnswersList = document.getElementById('incorrect-answers-list');
     const retakeQuizBtn = document.getElementById('retake-quiz-btn');
     const returnHomeBtn = document.getElementById('return-home-btn');
-    const confettiContainer = document.getElementById('confetti-container');
-
+    // const confettiContainer = document.getElementById('confetti-container'); // Already available globally
 
     // Dark Mode Toggle
     const darkModeToggle = document.getElementById('dark-mode-toggle');
-    const sunIcon = document.getElementById('sun-icon');
-    const moonIcon = document.getElementById('moon-icon');
+    const sunIcon = darkModeToggle.querySelector('#sun-icon'); // More specific selection
+    const moonIcon = darkModeToggle.querySelector('#moon-icon'); // More specific selection
+
+    function setDarkMode(isDark) {
+        if (isDark) {
+            document.documentElement.classList.add('dark');
+            sunIcon.classList.add('hidden');
+            moonIcon.classList.remove('hidden');
+            localStorage.setItem('darkMode', 'true');
+        } else {
+            document.documentElement.classList.remove('dark');
+            sunIcon.classList.remove('hidden');
+            moonIcon.classList.add('hidden');
+            localStorage.setItem('darkMode', 'false');
+        }
+    }
 
     // Check local storage for dark mode preference
     if (localStorage.getItem('darkMode') === 'true' ||
         (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-        sunIcon.classList.add('hidden');
-        moonIcon.classList.remove('hidden');
+        setDarkMode(true);
     } else {
-        document.documentElement.classList.remove('dark');
-        sunIcon.classList.remove('hidden');
-        moonIcon.classList.add('hidden');
+        setDarkMode(false);
     }
 
     darkModeToggle.addEventListener('click', () => {
-        const isDarkMode = document.documentElement.classList.toggle('dark');
-        localStorage.setItem('darkMode', isDarkMode);
-        sunIcon.classList.toggle('hidden');
-        moonIcon.classList.toggle('hidden');
+        const isDarkMode = document.documentElement.classList.contains('dark');
+        setDarkMode(!isDarkMode);
     });
 
     // --- App State ---
-    let currentStandard = '';
-    let currentSubject = '';
+    let currentStandard = ''; // Will be set from standardSelectInput.value
+    let currentSubject = '';  // Will be set from subjectSelectInput.value
     let currentLesson = '';
     let isMixedMode = false;
     let questions = [];
-    let currentQuestionIndex = 0;
+    // let currentQuestionIndex = 0; // Not used in a scrollable list manner for indexing
+    let userAnswers = []; // To store user's answers
     let score = 0;
     let timerInterval;
 
-    // --- Mock Data Structure (Simulating file system for now) ---
-    // In a real scenario with many files, you might fetch a manifest file
-    // or use server-side logic to list available subjects/lessons.
-    // For GitHub Pages, we'll have to hardcode or fetch directory listings if possible (complex).
-    // For now, let's assume we know the structure or fetch a manifest.
     const availableData = {
         "+1": {
             "Physics": ["lesson1", "lesson2"],
@@ -105,60 +91,113 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // --- Homepage Logic ---
-    function updateSubjectOptions() {
-        currentStandard = standardSelect.value;
-        subjectSelect.innerHTML = '<option value="">-- Select Subject --</option>';
-        lessonSelect.innerHTML = '<option value="">-- Select Lesson --</option>';
-        subjectSelect.disabled = true;
+    // Handle Standard Card Selection
+    standardSelectionCardsContainer.addEventListener('click', (event) => {
+        const card = event.target.closest('.standard-card');
+        if (!card) return;
+
+        currentStandard = card.dataset.value;
+        standardSelectInput.value = currentStandard; // Update hidden input
+
+        // Update visual selection
+        standardSelectionCardsContainer.querySelectorAll('.standard-card').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+
+        updateSubjectDisplay();
+        lessonSelectionArea.classList.add('hidden'); // Hide lesson until subject is chosen
+        mixedModeArea.classList.add('hidden'); // Hide mixed mode until subject is chosen
+        checkCanStart();
+    });
+
+    function updateSubjectDisplay() {
+        subjectSelectionCardsContainer.innerHTML = ''; // Clear previous subject cards
+        subjectSelectInput.value = ''; // Clear hidden subject input
+        currentSubject = ''; // Clear current subject state
+        lessonSelect.innerHTML = '<option value="">-- Select Lesson --</option>'; // Reset lesson dropdown
         lessonSelect.disabled = true;
-        startQuizBtn.disabled = true;
+
 
         if (currentStandard && availableData[currentStandard]) {
-            Object.keys(availableData[currentStandard]).forEach(subject => {
-                const option = document.createElement('option');
-                option.value = subject.toLowerCase(); // Use lowercase for consistency in paths
-                option.textContent = subject;
-                subjectSelect.appendChild(option);
+            subjectSelectionArea.classList.remove('hidden');
+            Object.keys(availableData[currentStandard]).forEach(subjectName => {
+                const subjectValue = subjectName.toLowerCase();
+                const card = document.createElement('button');
+                card.classList.add('subject-card', 'group', 'p-4', 'bg-gray-50', 'dark:bg-gray-700', 'rounded-lg', 'border-2', 'border-transparent', 'hover:border-blue-500', 'dark:hover:border-blue-400', 'transition-all', 'duration-200', 'ease-in-out', 'text-center');
+                card.dataset.value = subjectValue;
+                // Simple text for now, could add icons based on subjectName
+                card.innerHTML = `<span class="font-semibold text-gray-700 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-300">${subjectName}</span>`;
+                subjectSelectionCardsContainer.appendChild(card);
             });
-            subjectSelect.disabled = false;
+        } else {
+            subjectSelectionArea.classList.add('hidden');
         }
+        lessonSelectionArea.classList.add('hidden');
+        mixedModeArea.classList.add('hidden');
+        checkCanStart();
     }
 
+    // Handle Subject Card Selection
+    subjectSelectionCardsContainer.addEventListener('click', (event) => {
+        const card = event.target.closest('.subject-card');
+        if (!card) return;
+
+        currentSubject = card.dataset.value;
+        subjectSelectInput.value = currentSubject;
+
+        subjectSelectionCardsContainer.querySelectorAll('.subject-card').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+
+        updateLessonOptions();
+        mixedModeArea.classList.remove('hidden');
+        checkCanStart();
+    });
+
+
     function updateLessonOptions() {
-        currentSubject = subjectSelect.value;
         lessonSelect.innerHTML = '<option value="">-- Select Lesson --</option>';
         lessonSelect.disabled = true;
-        startQuizBtn.disabled = true;
 
         if (currentStandard && currentSubject && availableData[currentStandard]) {
-            const subjectKey = Object.keys(availableData[currentStandard]).find(k => k.toLowerCase() === currentSubject);
-            if (subjectKey && availableData[currentStandard][subjectKey]) {
-                availableData[currentStandard][subjectKey].forEach(lessonFile => {
-                    const lessonName = lessonFile.replace('.json', ''); // Or format as needed
+            const subjectKeyOriginal = Object.keys(availableData[currentStandard]).find(k => k.toLowerCase() === currentSubject);
+            if (subjectKeyOriginal && availableData[currentStandard][subjectKeyOriginal]) {
+                lessonSelectionArea.classList.remove('hidden');
+                availableData[currentStandard][subjectKeyOriginal].forEach(lessonFile => {
+                    const lessonName = lessonFile.replace('.json', '');
                     const option = document.createElement('option');
                     option.value = lessonName;
-                    option.textContent = `Lesson ${lessonName.replace('lesson', '')}`; // User-friendly name
+                    option.textContent = `Lesson ${lessonName.replace('lesson', '')}`;
                     lessonSelect.appendChild(option);
                 });
                 lessonSelect.disabled = mixedQuestionsCheckbox.checked;
+            } else {
+                lessonSelectionArea.classList.add('hidden');
             }
+        } else {
+            lessonSelectionArea.classList.add('hidden');
         }
         checkCanStart();
     }
 
-    function toggleLessonSelect() {
+    mixedQuestionsCheckbox.addEventListener('change', () => {
         isMixedMode = mixedQuestionsCheckbox.checked;
         lessonSelect.disabled = isMixedMode;
         if (isMixedMode) {
             lessonSelect.value = '';
             currentLesson = '';
+        } else if (lessonSelect.options.length > 1) { // If lessons available and not mixed mode
+             lessonSelect.disabled = false; // Re-enable if disabled by mixed mode
         }
         checkCanStart();
-    }
+    });
+
+    lessonSelect.addEventListener('change', () => { // Added event listener for lesson select
+        currentLesson = lessonSelect.value;
+        checkCanStart();
+    });
+
 
     function checkCanStart() {
-        currentLesson = lessonSelect.value;
+        // currentLesson is updated by its own event listener or when mixed mode is toggled
         if (currentStandard && currentSubject && (currentLesson || isMixedMode)) {
             startQuizBtn.disabled = false;
         } else {
@@ -167,114 +206,95 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function resetQuizSelections() {
-        standardSelect.value = '';
-        subjectSelect.innerHTML = '<option value="">-- Select Subject --</option>';
-        subjectSelect.disabled = true;
-        lessonSelect.innerHTML = '<option value="">-- Select Lesson --</option>';
-        lessonSelect.disabled = true;
-        mixedQuestionsCheckbox.checked = false;
-        startQuizBtn.disabled = true;
         currentStandard = '';
         currentSubject = '';
         currentLesson = '';
         isMixedMode = false;
+
+        standardSelectInput.value = '';
+        subjectSelectInput.value = '';
+        standardSelectionCardsContainer.querySelectorAll('.standard-card').forEach(c => c.classList.remove('selected'));
+
+        subjectSelectionArea.classList.add('hidden');
+        subjectSelectionCardsContainer.innerHTML = '';
+
+        lessonSelectionArea.classList.add('hidden');
+        lessonSelect.innerHTML = '<option value="">-- Select Lesson --</option>';
+        lessonSelect.disabled = true;
+
+        mixedModeArea.classList.add('hidden');
+        mixedQuestionsCheckbox.checked = false;
+
+        startQuizBtn.disabled = true;
     }
 
-
-    // --- Event Listeners ---
-    standardSelect.addEventListener('change', updateSubjectOptions);
-    subjectSelect.addEventListener('change', updateLessonOptions);
-    lessonSelect.addEventListener('change', checkCanStart);
-    mixedQuestionsCheckbox.addEventListener('change', toggleLessonSelect);
-
-    startQuizBtn.addEventListener('click', () => {
-        console.log("Starting quiz with:", currentStandard, currentSubject, currentLesson, isMixedMode);
-        showPage(quizPage);
-        loadQuestionsAndStart();
-    });
-
-    returnHomeBtn.addEventListener('click', () => {
-        resultPage.classList.remove('slide-in'); // remove specific animation for result if any
-        showPage(homePage);
-        resetQuizSelections();
-    });
-
-    // Initialize
-    updateSubjectOptions();
-    showPage(homePage); // Show initial page
-
-    // --- Quiz Logic ---
-    let userAnswers = [];
-
-    async function fetchQuestions(standard, subject, lesson) {
-        const path = `data/${standard}/${subject}/${lesson}.json`;
+    async function fetchQuestions(std, subj, less) {
+        const path = `data/${std}/${subj}/${less}.json`;
         try {
             const response = await fetch(path);
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status} for path ${path}`);
-            }
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status} for ${path}`);
             return await response.json();
         } catch (error) {
             console.error("Failed to fetch questions:", error);
-            quizContent.innerHTML = `<p class="text-red-500">Error loading questions. Please check the data files or console.</p>`;
+            quizContent.innerHTML = `<p class="text-red-500 dark:text-red-400 p-4">Error loading questions for ${subj} ${less}. Please check data file exists and is valid JSON or console for more details.</p>`;
             return [];
         }
     }
 
     async function loadQuestionsAndStart() {
         questions = [];
-        userAnswers = [];
-        currentQuestionIndex = 0;
-        score = 0;
-        // quizContent.innerHTML = '<p>Loading questions...</p>'; // Loading indicator
-        quizContent.innerHTML = `
-            <div class="flex flex-col items-center justify-center p-8">
-                <div class="loading-spinner"></div>
-                <p class="loading-text">Loading questions...</p>
-            </div>
-        `;
+        userAnswers = []; // Reset user answers
+        score = 0; // Reset score
+        quizContent.innerHTML = '<p class="text-center p-4">Loading questions...</p>';
 
         if (isMixedMode) {
-            // Fetch from all lessons in the subject
-            const subjectKey = Object.keys(availableData[currentStandard]).find(k => k.toLowerCase() === currentSubject);
-            if (subjectKey && availableData[currentStandard][subjectKey]) {
-                const lessonPromises = availableData[currentStandard][subjectKey].map(lessonFile => {
+            const subjectKeyOriginal = Object.keys(availableData[currentStandard]).find(k => k.toLowerCase() === currentSubject);
+            if (subjectKeyOriginal && availableData[currentStandard][subjectKeyOriginal]) {
+                const lessonPromises = availableData[currentStandard][subjectKeyOriginal].map(lessonFile => {
                     const lessonName = lessonFile.replace('.json', '');
                     return fetchQuestions(currentStandard, currentSubject, lessonName);
                 });
                 const results = await Promise.all(lessonPromises);
                 results.forEach(lessonQuestions => questions.push(...lessonQuestions));
-                // Shuffle all questions for mixed mode
-                questions.sort(() => Math.random() - 0.5);
+                questions.sort(() => Math.random() - 0.5); // Shuffle for mixed mode
             }
         } else {
             questions = await fetchQuestions(currentStandard, currentSubject, currentLesson);
         }
 
         if (questions.length > 0) {
-            userAnswers = new Array(questions.length).fill(null);
+            userAnswers = new Array(questions.length).fill(null); // Initialize userAnswers array
             displayQuiz();
-            startTimer(questions.length * 4 * 60); // 4 minutes per question
-        } else {
-            quizContent.innerHTML = `<p class="text-red-500">No questions found for the selected criteria. Please go back and try different options.</p>`;
-            // Optionally, disable submit button or provide a back button here
+            startTimer(questions.length * 4 * 60);
+        } else if (quizContent.innerHTML.includes('Loading questions...')) { // Only update if not already showing an error
+            quizContent.innerHTML = `<p class="text-center p-4 text-red-500 dark:text-red-400">No questions found for the selected criteria. Please try different options.</p>`;
+            submitQuizBtn.disabled = true; // Disable submit if no questions
         }
+         progressIndicator.textContent = `Total Questions: ${questions.length}`;
     }
 
     function displayQuiz() {
-        quizContent.innerHTML = ''; // Clear previous content
+        quizContent.innerHTML = '';
+        submitQuizBtn.disabled = questions.length === 0;
+
         questions.forEach((q, index) => {
+            const questionId = `q_${index}`;
             const questionElement = document.createElement('div');
-            // Apply the new question-block class, remove old specific Tailwind classes for structure
-            questionElement.classList.add('question-block');
+            questionElement.classList.add('mb-8', 'p-4', 'border-b', 'border-gray-200', 'dark:border-gray-700');
+
+            let imageHTML = '';
+            if (q.image) {
+                imageHTML = `<img src="${q.image}" alt="Question image ${index + 1}" class="my-2 max-w-xs rounded-md shadow-sm mx-auto sm:mx-0">`;
+            }
+
             questionElement.innerHTML = `
-                <h3>${index + 1}. ${q.question}</h3>
-                ${q.image ? `<img src="${q.image}" alt="Question image">` : ''}
-                <div class="space-y-2">
+                <h3 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-200">${index + 1}. ${q.question}</h3>
+                ${imageHTML}
+                <div class="space-y-2 mt-2">
                     ${q.options.map((option, i) => `
-                        <label for="q${index}_option${i}" class="quiz-option block dark:hover:bg-gray-700 hover:bg-gray-100">
-                            <input type="radio" name="question${index}" id="q${index}_option${i}" value="${option}" class="mr-2">
-                            ${option}
+                        <label for="${questionId}_option${i}" class="quiz-option">
+                            <input type="radio" name="${questionId}" id="${questionId}_option${i}" value="${option}" class="mr-2 sr-only">
+                            <span class="option-text">${option}</span>
                         </label>
                     `).join('')}
                 </div>
@@ -282,81 +302,105 @@ document.addEventListener('DOMContentLoaded', () => {
             quizContent.appendChild(questionElement);
 
             // Add event listeners for option selection
-            const radioButtons = questionElement.querySelectorAll(`input[name="question${index}"]`);
-            radioButtons.forEach(radio => {
-                radio.addEventListener('change', (event) => {
-                    userAnswers[index] = event.target.value;
-                    // Update visual selection
-                    questionElement.querySelectorAll('.quiz-option').forEach(optLabel => {
-                        optLabel.classList.remove('selected', 'dark:bg-blue-700', 'bg-blue-100', 'border-blue-300');
-                    });
-                    if(event.target.checked) {
-                        event.target.parentElement.classList.add('selected', 'dark:bg-blue-700', 'bg-blue-100', 'border-blue-300');
+            const radioLabels = questionElement.querySelectorAll('.quiz-option');
+            radioLabels.forEach(label => {
+                label.addEventListener('click', (event) => {
+                    // Find the actual radio button associated with the clicked label
+                    const associatedRadio = label.querySelector('input[type="radio"]');
+                    if (associatedRadio) {
+                        associatedRadio.checked = true; // Ensure radio is checked
+                        userAnswers[index] = associatedRadio.value; // Store the value
+
+                        // Update visual selection for all options of this question
+                        questionElement.querySelectorAll('.quiz-option').forEach(optLabel => {
+                            optLabel.classList.remove('selected', 'font-semibold');
+                        });
+                        label.classList.add('selected', 'font-semibold');
                     }
-                    console.log(`Answered q${index}:`, userAnswers[index]);
                 });
             });
         });
-        updateProgressIndicator();
     }
-
-    function updateProgressIndicator() {
-        // This is a single page scrollable test, so progress is more about "X questions loaded"
-        // Or we can interpret it as "Question Y of Z" for the timer context
-        progressIndicator.textContent = `Total Questions: ${questions.length}`;
-    }
-
 
     function startTimer(durationInSeconds) {
         clearInterval(timerInterval);
-        let timer = durationInSeconds;
+        let timeLeft = durationInSeconds;
+        const totalDuration = durationInSeconds; // Keep initial duration
+
+        const radius = timerSvgProgress.r.baseVal.value;
+        const circumference = 2 * Math.PI * radius;
+        timerSvgProgress.style.strokeDasharray = circumference;
+
+        // Initial full circle
+        timerSvgProgress.style.strokeDashoffset = 0;
+        timerSvgProgress.classList.remove('warning', 'danger');
+
+
         timerInterval = setInterval(() => {
-            const minutes = Math.floor(timer / 60);
-            const seconds = timer % 60;
-            timerDisplay.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-            timer--;
-            if (timer < 0) {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            timerTextDisplay.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+            // Update SVG progress
+            const progress = timeLeft / totalDuration;
+            timerSvgProgress.style.strokeDashoffset = circumference * (1 - progress);
+
+            // Optional: Change color based on time left
+            if (timeLeft <= totalDuration * 0.25) { // Last 25% of time
+                timerSvgProgress.classList.add('danger');
+                timerSvgProgress.classList.remove('warning');
+            } else if (timeLeft <= totalDuration * 0.5) { // Last 50% of time
+                timerSvgProgress.classList.add('warning');
+                timerSvgProgress.classList.remove('danger');
+            } else {
+                timerSvgProgress.classList.remove('warning', 'danger');
+            }
+
+            timeLeft--;
+            if (timeLeft < 0) {
                 clearInterval(timerInterval);
-                timerDisplay.textContent = "Time's Up!";
+                timerTextDisplay.textContent = "00:00"; // Ensure it shows 00:00 at the end
+                timerSvgProgress.style.strokeDashoffset = circumference; // Empty circle
+                timerSvgProgress.classList.add('danger'); // Ensure danger color at timeout
+                // Optionally, add a more prominent "Time's Up!" message near timer or globally
+                // For now, the visual and 00:00 is the indicator.
                 submitQuiz(true); // Auto-submit
             }
         }, 1000);
     }
 
     function submitQuiz(isAutoSubmit = false) {
-        clearInterval(timerInterval);
+        clearInterval(timerInterval); // Ensure timer is stopped on any submission
         score = 0;
         questions.forEach((q, index) => {
-            if (userAnswers[index] === q.answer) {
-                score++;
+            try {
+                const correctAnswer = atob(q.answer); // Decode Base64 answer
+                if (userAnswers[index] === correctAnswer) {
+                    score++;
+                }
+            } catch (e) {
+                console.error("Error decoding answer for question:", q.question, e);
+                // Handle error: maybe this question is skipped for scoring or marked specially
             }
         });
-
-        console.log("Quiz submitted. Score:", score, "out of", questions.length);
         if (!isAutoSubmit) {
-            // Could add a confirmation here if desired
+            // console.log("Manual submit");
         }
-        // showResults(); // Called by submitQuiz, which in turn calls showPage
-        navigateToResultsPage();
+        showResults();
     }
 
-    function navigateToResultsPage() {
-        showPage(resultPage);
-        // The slide-in for result page is handled by its own class logic if needed,
-        // but general fade-in is now primary.
-        // Ensure slide-in specific class is added if it's different from the general fade
-        const resultCard = resultPage.querySelector('.card');
-        if (resultCard) {
-             // Remove previous animation classes if any, then add
-            resultCard.classList.remove('slide-in'); // remove if it was there
-            void resultCard.offsetWidth; // Force reflow
-            resultCard.classList.add('slide-in'); // Add the specific animation for result card
-        }
+    function showResults() {
+        homePage.classList.add('hidden');
+        quizPage.classList.add('hidden');
+        resultPage.classList.remove('hidden');
 
-        renderResults();
-    }
+        // Ensure the result card has the slide-in animation
+        const resultCard = resultPage.querySelector('.max-w-lg'); // The card div
+        resultCard.classList.remove('slide-in'); // Remove if already there to re-trigger
+        void resultCard.offsetWidth; // Force reflow to allow re-triggering animation
+        resultCard.classList.add('slide-in');
 
-    function renderResults() { // Renamed from showResults to avoid confusion with showPage
+
         const totalQuestions = questions.length;
         const percentage = totalQuestions > 0 ? Math.round((score / totalQuestions) * 100) : 0;
 
@@ -365,7 +409,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (percentage >= 80) {
             resultMessage.textContent = "Excellent! Well done!";
-            triggerConfetti();
+            if (typeof confetti === 'function') confetti({ particleCount: 150, spread: 90, origin: { y: 0.6 }, zIndex: 10000 });
         } else if (percentage >= 60) {
             resultMessage.textContent = "Good effort! Keep practicing.";
         } else {
@@ -373,62 +417,92 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         incorrectAnswersList.innerHTML = '';
+        let hasIncorrect = false;
         questions.forEach((q, index) => {
             if (userAnswers[index] !== q.answer) {
+                hasIncorrect = true;
                 const item = document.createElement('div');
-                item.classList.add('incorrect-answer-item'); // New class for overall item styling
+                item.classList.add('mb-4', 'p-3', 'bg-gray-50', 'dark:bg-gray-700', 'rounded-md', 'shadow-sm');
+                let imageReviewHTML = '';
+                if (q.image) {
+                    imageReviewHTML = `<img src="${q.image}" alt="Question image ${index + 1}" class="my-1 max-w-xs rounded-md mx-auto sm:mx-0">`;
+                }
+                let correctAnswerForReview = "Error: Could not decode answer.";
+                try {
+                    correctAnswerForReview = atob(q.answer); // Decode for display
+                } catch (e) {
+                    console.error("Error decoding answer for review:", q.question, e);
+                }
                 item.innerHTML = `
-                    <p class="question-text">${index + 1}. ${q.question}</p>
-                    ${q.image ? `<img src="${q.image}" alt="Question image">` : ''}
-                    <p>Your answer: <span class="user-answer-incorrect">${userAnswers[index] || "Not answered"}</span></p>
-                    <p>Correct answer: <span class="correct-answer-review">${q.answer}</span></p>
+                    <p class="font-semibold text-gray-800 dark:text-gray-200">${index + 1}. ${q.question}</p>
+                    ${imageReviewHTML}
+                    <p class="text-sm">Your answer: <span class="user-answer-incorrect">${userAnswers[index] || "Not answered"}</span></p>
+                    <p class="text-sm">Correct answer: <span class="correct-answer-review">${correctAnswerForReview}</span></p>
                 `;
                 incorrectAnswersList.appendChild(item);
             }
         });
-        if (incorrectAnswersList.innerHTML === '') {
-            incorrectAnswersList.innerHTML = '<p>No incorrect answers. Great job!</p>';
-        }
-    }
-
-    function triggerConfetti() {
-        if (typeof confetti === 'function') {
-            confetti({
-                particleCount: 100,
-                spread: 70,
-                origin: { y: 0.6 },
-                zIndex: 9999 // Ensure confetti is on top
-            });
+        if (!hasIncorrect && totalQuestions > 0) {
+            incorrectAnswersList.innerHTML = '<p class="text-green-600 dark:text-green-400">Congratulations! No incorrect answers.</p>';
+        } else if (totalQuestions === 0) {
+             incorrectAnswersList.innerHTML = '<p>No questions were loaded for this quiz.</p>';
         }
     }
 
     function resetQuizStateForRetake() {
-        questions = [];
-        userAnswers = [];
-        currentQuestionIndex = 0;
+        // questions array and selections (standard, subject, lesson, mixedMode) are preserved
+        userAnswers = new Array(questions.length).fill(null);
         score = 0;
         clearInterval(timerInterval);
-        timerDisplay.textContent = "00:00";
-        quizContent.innerHTML = '';
-        progressIndicator.textContent = '';
-        // resultPage.classList.add('hidden'); // Handled by showPage
-        const resultCard = resultPage.querySelector('.card');
-        if (resultCard) resultCard.classList.remove('slide-in');
-        // Selections (standard, subject, etc.) are kept for retake
+        timerTextDisplay.textContent = "00:00"; // Reset new timer text
+        if(timerSvgProgress) { // Reset SVG progress
+            const radius = timerSvgProgress.r.baseVal.value;
+            const circumference = 2 * Math.PI * radius;
+            timerSvgProgress.style.strokeDashoffset = 0; // Full circle
+            timerSvgProgress.classList.remove('warning', 'danger');
+        }
+        quizContent.innerHTML = ''; // Will be repopulated by loadQuestionsAndStart
+        // progressIndicator.textContent = ''; // Will be repopulated
+        resultPage.classList.add('hidden');
+        const resultCard = resultPage.querySelector('.max-w-lg');
+        if(resultCard) resultCard.classList.remove('slide-in');
     }
 
+    // --- Event Listeners ---
+    standardSelect.addEventListener('change', updateSubjectOptions);
+    subjectSelect.addEventListener('change', updateLessonOptions);
+    lessonSelect.addEventListener('change', checkCanStart); // Added to re-check when lesson changes
+    mixedQuestionsCheckbox.addEventListener('change', toggleLessonSelect);
 
-    // --- Update Event Listeners ---
-    // startQuizBtn listener is already updated to use showPage(quizPage)
+    startQuizBtn.addEventListener('click', () => {
+        homePage.classList.add('hidden');
+        quizPage.classList.remove('hidden');
+        resultPage.classList.add('hidden');
+        const resultCard = resultPage.querySelector('.max-w-lg');
+        if(resultCard) resultCard.classList.remove('slide-in');
+        loadQuestionsAndStart();
+    });
 
     submitQuizBtn.addEventListener('click', () => submitQuiz(false));
 
     retakeQuizBtn.addEventListener('click', () => {
         resetQuizStateForRetake();
-        showPage(quizPage); // Navigate back to quiz page
-        loadQuestionsAndStart();
+        quizPage.classList.remove('hidden'); // Show quiz page again
+        homePage.classList.add('hidden');    // Ensure home is hidden
+        loadQuestionsAndStart(); // Reload same questions and restart timer
     });
 
-    // --- Placeholder for future functions ---
-    // function displayQuestion(index) {} // Replaced by displayQuiz for full scrollable list
+    returnHomeBtn.addEventListener('click', () => {
+        resultPage.classList.add('hidden');
+        const resultCard = resultPage.querySelector('.max-w-lg');
+        if(resultCard) resultCard.classList.remove('slide-in');
+        homePage.classList.remove('hidden');
+        resetQuizSelections();
+    });
+
+    // Initialize
+    updateSubjectOptions(); // Initial call
+    homePage.classList.remove('hidden'); // Ensure home page is visible on load
+    quizPage.classList.add('hidden');
+    resultPage.classList.add('hidden');
 });
