@@ -1,20 +1,20 @@
 [
   {
-    "question": "V2hhdCBpcyB0aGUgU0kgdW5pdCBvZiBmb3JjZT8=",
-    "options": ["V2F0dA==", "Sm91bGU=", "TmV3dG9u", "UGFzY2Fs"],
-    "answer": "TmV3dG9u",
+    "question": "What is the SI unit of force?",
+    "options": ["Watt", "Joule", "Newton", "Pascal"],
+    "answer": "Newton",
     "image": null
   },
   {
-    "question": "V2hpY2ggb2YgdGhlIGZvbGxvd2luZyBpcyBhIHNjYWxhciBxdWFudGl0eT8=",
-    "options": ["VmVsb2NpdHk=", "QWNjZWxlcmF0aW9u", "Rm9yY2U=", "U3BlZWQ="],
-    "answer": "U3BlZWQ=",
+    "question": "Which of the following is a scalar quantity?",
+    "options": ["Velocity", "Acceleration", "Force", "Speed"],
+    "answer": "Speed",
     "image": null
   },
   {
-    "question": "V2hhdCBpcyB0aGUgZm9ybXVsYSBmb3Iga2luZXRpYyBlbmVyZ3k/",
-    "options": ["bWdo", "MS8yIG12XjI=", "RiA9IG1h", "UCA9IFZJ"],
-    "answer": "MS8yIG12XjI=",
+    "question": "What is the formula for kinetic energy?",
+    "options": ["mgh", "1/2 mv^2", "F = ma", "P = VI"],
+    "answer": "1/2 mv^2",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Kinetic_energy.gif/220px-Kinetic_energy.gif"
   }
 ]

@@ -73,9 +73,13 @@ body {
     }
 }
 
-#result-page.slide-in > .card { /* Targeting the card inside for animation */
+/* Applied to the card within result page for consistency with initial build behavior */
+#result-page > .card {
     animation: slideInUp 0.5s ease-out forwards;
 }
+/* If result page itself should slide, it would be #result-page.slide-in as before */
+/* For now, matching the HTML structure where .card was added to the result div */
+
 
 #confetti-container { /* Ensured this is fixed for viewport coverage */
     position: fixed;
@@ -92,79 +96,20 @@ body {
 #dark-mode-toggle .text-yellow-500 { color: #F59E0B; }
 #dark-mode-toggle .text-gray-400 { color: #9CA3AF; }
 
-/* Checkbox styling to ensure better visibility in dark mode if needed */
-input[type="checkbox"] {
-    /* Tailwind classes in HTML handle most of this now */
-}
 
-label { /* General label color for dark mode if not overridden by more specific selectors */
-    color: #374151; /* gray-700 */
-}
-.dark label {
-    color: #D1D5DB; /* gray-300 */
-}
-
-/* Custom styled select for lesson dropdown - enhance if needed */
-/* This .custom-select was already in the initial CSS, ensure it's correctly defined or enhance.
-   The HTML for select elements now includes 'appearance-none' and 'custom-select'
-   so these styles will apply.
-*/
-select.custom-select { /* Make selector more specific if needed */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20fill%3D%22none%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20stroke%3D%22%236B7280%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%221.5%22%20d%3D%22M6%208l4%204%204-4%22%2F%3E%3C%2Fsvg%3E');
-    background-repeat: no-repeat;
-    background-position: right 0.75rem center;
-    background-size: 1em 1em; /* Adjusted size slightly */
-    padding-right: 2.5rem;
-}
-.dark select.custom-select {
-     background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20fill%3D%22none%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20stroke%3D%22%239CA3AF%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%221.5%22%20d%3D%22M6%208l4%204%204-4%22%2F%3E%3C%2Fsvg%3E');
-}
-
-/* Ensure hidden class works as expected */
+/* Ensure hidden class works as expected if not using Tailwind's hidden */
 .hidden {
     display: none !important;
 }
 
-/* Next-Level Timer Graphics */
-#timer-wrapper {
-    /* Sizing is handled by Tailwind classes in HTML (w-20 h-20 sm:w-24 sm:h-24) */
+/* Custom select arrow styling if needed beyond Tailwind, but initial build relied on browser default or simple Tailwind */
+select {
+    /* appearance-none; Tailwind class can also be used in HTML */
+    /* For initial build, likely used browser default or very minimal styling for select arrow */
 }
-
-.timer-svg-bg {
-    stroke: #e5e7eb; /* Tailwind gray-200 */
+label { /* General label color for dark mode if not overridden by more specific selectors */
+    /* color: #374151; /* gray-700 */ /* Reverted to rely on HTML for this */
 }
-.dark .timer-svg-bg {
-    stroke: #4b5563; /* Tailwind gray-600 */
-}
-
-.timer-svg-progress {
-    stroke: #3b82f6; /* Tailwind blue-500 */
-    stroke-linecap: round; /* Makes the ends of the progress line rounded */
-    transition: stroke-dashoffset 0.3s linear, stroke 0.3s ease; /* Smooth transition for time ticks and color change */
-}
-.dark .timer-svg-progress {
-    stroke: #60a5fa; /* Tailwind blue-400 */
-}
-
-/* Optional: Critical time color change */
-.timer-svg-progress.warning {
-    stroke: #f59e0b; /* Tailwind amber-500 */
-}
-.dark .timer-svg-progress.warning {
-    stroke: #fcd34d; /* Tailwind amber-300 */
-}
-
-.timer-svg-progress.danger {
-    stroke: #ef4444; /* Tailwind red-500 */
-}
-.dark .timer-svg-progress.danger {
-    stroke: #f87171; /* Tailwind red-400 */
-}
-
-#timer-text {
-    /* Text color handled by Tailwind in HTML */
-    /* Font size handled by Tailwind in HTML */
+.dark label {
+    /* color: #D1D5DB; /* gray-300 */ /* Reverted to rely on HTML for this */
 }
