@@ -1,67 +1,292 @@
-/* Basic body styling for smooth transitions if needed */
-body {
-    transition: background-color 0.5s, color 0.5s;
+:root {
+    --font-family-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+    /* Light Theme */
+    --primary-color-light: #3B82F6; /* blue-500 */
+    --secondary-color-light: #10B981; /* green-500 */
+    --accent-color-light: #F59E0B; /* amber-500 */
+    --background-color-light: #F9FAFB; /* gray-50 */
+    --card-background-light: #FFFFFF;
+    --text-color-light: #1F2937; /* gray-800 */
+    --text-muted-light: #6B7280; /* gray-500 */
+    --border-color-light: #E5E7EB; /* gray-200 */
+    --user-answer-incorrect-color: #EF4444; /* red-500 */
+
+
+    /* Dark Theme */
+    --primary-color-dark: #60A5FA; /* blue-400 */
+    --secondary-color-dark: #34D399; /* green-400 */
+    --accent-color-dark: #FBBF24; /* amber-400 */
+    --background-color-dark: #111827; /* gray-900 */
+    --card-background-dark: #1F2937; /* gray-800 */
+    --text-color-dark: #F3F4F6; /* gray-100 */
+    --text-muted-dark: #9CA3AF; /* gray-400 */
+    --border-color-dark: #374151; /* gray-700 */
+    --user-answer-incorrect-dark-color: #F87171; /* red-400 */
+
+    /* Global */
+    --border-radius-sm: 0.375rem; /* rounded-md */
+    --border-radius-md: 0.5rem; /* rounded-lg */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
-/* Additional custom styles can go here if Tailwind isn't enough */
+html {
+    font-family: var(--font-family-sans);
+}
+
+body {
+    background-color: var(--background-color-light);
+    color: var(--text-color-light);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    line-height: 1.6;
+}
+
+.dark body {
+    background-color: var(--background-color-dark);
+    color: var(--text-color-dark);
+}
+
+/* Generic Card Styling */
+.card {
+    background-color: var(--card-background-light);
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--border-color-light);
+    box-shadow: var(--shadow-md);
+    padding: 1.5rem; /* p-6 */
+}
+.dark .card {
+    background-color: var(--card-background-dark);
+    border-color: var(--border-color-dark);
+}
+
+/* Generic Button Styling */
+.btn {
+    padding: 0.625rem 1.25rem; /* py-2.5 px-5 */
+    border-radius: var(--border-radius-sm);
+    font-weight: 600; /* font-semibold */
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid transparent;
+}
+.btn:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+}
+.btn:active {
+    transform: translateY(0px);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-primary {
+    background-color: var(--primary-color-light);
+    color: white;
+    border-color: var(--primary-color-light);
+}
+.dark .btn-primary {
+    background-color: var(--primary-color-dark);
+    color: var(--text-color-light); /* Or a very dark gray for contrast */
+    border-color: var(--primary-color-dark);
+}
+.btn-primary:hover {
+    background-color: #2563EB; /* darker blue-600 */
+}
+.dark .btn-primary:hover {
+    background-color: #3B82F6; /* darker blue-500 */
+}
+
+
+.btn-secondary {
+    background-color: var(--secondary-color-light);
+    color: white;
+    border-color: var(--secondary-color-light);
+}
+.dark .btn-secondary {
+    background-color: var(--secondary-color-dark);
+    color: var(--text-color-light);
+    border-color: var(--secondary-color-dark);
+}
+.btn-secondary:hover {
+    background-color: #059669; /* darker green-600 */
+}
+.dark .btn-secondary:hover {
+    background-color: #10B981; /* darker green-500 */
+}
+
+.btn-neutral {
+    background-color: var(--card-background-light);
+    color: var(--text-color-light);
+    border: 1px solid var(--border-color-light);
+}
+.dark .btn-neutral {
+    background-color: var(--card-background-dark);
+    color: var(--text-color-dark);
+    border: 1px solid var(--border-color-dark);
+}
+.btn-neutral:hover {
+    background-color: #F3F4F6; /* gray-100 */
+}
+.dark .btn-neutral:hover {
+    background-color: #374151; /* gray-700 */
+}
+
+.btn:disabled, .btn[disabled] { /* Targeting [disabled] attribute as well for robustness */
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: translateY(0); /* No hover/active transform */
+    box-shadow: var(--shadow-sm); /* Reset shadow to non-hover state */
+    /* Ensure background and text color indicate disabled state if needed,
+       but opacity often suffices. For more specific control:
+       background-color: #D1D5DB; // gray-300
+       color: #6B7280; // gray-500
+       border-color: #D1D5DB;
+    */
+}
+/* Example of more specific disabled styling for primary button if needed
+.dark .btn-primary:disabled, .dark .btn-primary[disabled] {
+    background-color: var(--border-color-dark); // Or a muted version of primary
+    color: var(--text-muted-dark);
+}
+*/
+
+
+/* Input fields styling */
+select, input[type="text"] {
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--border-color-light);
+    background-color: var(--card-background-light);
+    padding: 0.625rem 0.75rem; /* py-2.5 px-3 - increased padding slightly */
+    color: var(--text-color-light);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    -webkit-appearance: none; /* Remove default arrow on Safari/Chrome */
+    -moz-appearance: none; /* Remove default arrow on Firefox */
+    appearance: none; /* Remove default arrow */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20fill%3D%22none%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20stroke%3D%22%236B7280%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%221.5%22%20d%3D%22M6%208l4%204%204-4%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1.25em 1.25em;
+    padding-right: 2.5rem; /* Make space for custom arrow */
+}
+select:focus, input[type="text"]:focus {
+    outline: none;
+    border-color: var(--primary-color-light);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2); /* Tailwind blue-500 focus ring, adjusted */
+}
+
+.dark select, .dark input[type="text"] {
+    border-color: var(--border-color-dark);
+    background-color: var(--card-background-dark);
+    color: var(--text-color-dark);
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20fill%3D%22none%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20stroke%3D%22%239CA3AF%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%221.5%22%20d%3D%22M6%208l4%204%204-4%22%2F%3E%3C%2Fsvg%3E');
+}
+.dark select:focus, .dark input[type="text"]:focus {
+    border-color: var(--primary-color-dark);
+    box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.3); /* Tailwind blue-400 focus ring, adjusted */
+}
+
+select:disabled {
+    background-color: #F3F4F6; /* gray-100 */
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+.dark select:disabled {
+    background-color: #374151; /* gray-700 */
+}
+
+
+input[type="checkbox"] {
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--border-color-light);
+    background-color: var(--card-background-light);
+    color: var(--text-color-light);
+    padding: 0; /* Reset padding for checkbox */
+    height: 1.125rem; width: 1.125rem; /* Slightly larger */
+    vertical-align: middle;
+    accent-color: var(--primary-color-light);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+input[type="checkbox"]:focus {
+    outline: none;
+    border-color: var(--primary-color-light);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+.dark input[type="checkbox"] {
+    border-color: var(--border-color-dark);
+    background-color: var(--card-background-dark); /* Should be transparent or match page bg for checkbox */
+    accent-color: var(--primary-color-dark);
+}
+.dark input[type="checkbox']:focus {
+    border-color: var(--primary-color-dark);
+    box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.3);
+}
+/* Custom styling for the label associated with checkbox for better alignment */
+label[for*="checkbox"] {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
 
 /* Styling for quiz options */
 .quiz-option {
     display: block;
-    padding: 0.75rem 1rem;
-    margin-bottom: 0.5rem;
-    border: 1px solid #e2e8f0; /* Tailwind gray-300 */
-    border-radius: 0.375rem; /* Tailwind rounded-md */
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0.75rem;
+    border: 1px solid var(--border-color-light);
+    border-radius: var(--border-radius-sm);
     cursor: pointer;
-    transition: background-color 0.2s, border-color 0.2s;
+    transition: background-color 0.2s, border-color 0.2s, transform 0.1s ease;
+    background-color: var(--card-background-light);
+}
+.dark .quiz-option {
+    background-color: var(--card-background-dark);
+    border-color: var(--border-color-dark);
 }
 
 .quiz-option:hover {
-    background-color: #f7fafc; /* Tailwind gray-100 */
+    border-color: var(--primary-color-light);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+.dark .quiz-option:hover {
+    border-color: var(--primary-color-dark);
 }
 
 .quiz-option.selected {
-    background-color: #ebf8ff; /* Tailwind blue-100 */
-    border-color: #90cdf4; /* Tailwind blue-300 */
+    background-color: #DBEAFE; /* blue-100 */
+    border-color: var(--primary-color-light);
+    color: var(--primary-color-light); /* Make text color match border */
+    font-weight: 600;
 }
-
-.dark .quiz-option {
-    border: 1px solid #4a5568; /* Tailwind dark:gray-600 */
-}
-
-.dark .quiz-option:hover {
-    background-color: #2d3748; /* Tailwind dark:gray-700 */
-}
-
 .dark .quiz-option.selected {
-    background-color: #2c5282; /* Tailwind dark:blue-700 example, adjust as needed */
-    border-color: #4299e1; /* Tailwind dark:blue-400 example */
+    background-color: #253656; /* A darker blue shade for dark mode selection */
+    border-color: var(--primary-color-dark);
+    color: var(--primary-color-dark);
 }
 
 
 /* Styling for correct/incorrect answers in review */
 .correct-answer-review {
-    color: #38a169; /* Tailwind green-600 */
+    color: var(--secondary-color-light);
     font-weight: bold;
+}
+.dark .correct-answer-review {
+    color: var(--secondary-color-dark);
 }
 
 .user-answer-incorrect {
-    color: #e53e3e; /* Tailwind red-600 */
+    color: #EF4444; /* red-500 */
     text-decoration: line-through;
+    text-decoration-thickness: 2px;
 }
-
-.dark .correct-answer-review {
-    color: #68d391; /* Tailwind dark:green-400 */
-}
-
 .dark .user-answer-incorrect {
-    color: #fc8181; /* Tailwind dark:red-400 */
+    color: #F87171; /* red-400 */
 }
 
 /* Simple slide-in animation for result page (optional) */
 @keyframes slideInUp {
     from {
-        transform: translateY(100%);
+        transform: translateY(50px); /* Start a bit lower */
         opacity: 0;
     }
     to {
@@ -70,7 +295,7 @@ body {
     }
 }
 
-#result-page.slide-in {
+#result-page.slide-in > div { /* Apply to child div for better effect with padding */
     animation: slideInUp 0.5s ease-out forwards;
 }
 
@@ -82,4 +307,247 @@ body {
     height: 100%;
     pointer-events: none; /* Important: allow clicks to pass through */
     z-index: 9999; /* Ensure it's on top */
+}
+
+/* Header styling */
+header h1 {
+    color: var(--primary-color-light);
+    font-size: 2.5rem; /* Tailwind text-4xl */
+    margin-bottom: 0.5rem;
+}
+.dark header h1 {
+    color: var(--primary-color-dark);
+}
+header p {
+    color: var(--text-muted-light);
+    font-size: 1.25rem; /* Tailwind text-xl */
+}
+.dark header p {
+    color: var(--text-muted-dark);
+}
+
+/* Utility classes for text colors based on variables */
+.text-primary { color: var(--primary-color-light); }
+.dark .text-primary { color: var(--primary-color-dark); }
+
+.text-secondary { color: var(--secondary-color-light); }
+.dark .text-secondary { color: var(--secondary-color-dark); }
+
+.text-accent { color: var(--accent-color-light); }
+.dark .text-accent { color: var(--accent-color-dark); }
+
+.text-muted { color: var(--text-muted-light); }
+.dark .text-muted { color: var(--text-muted-dark); }
+
+/* Timer Specific Styling */
+#timer-container { /* New container for timer and icon */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* space-x-2 */
+    color: var(--accent-color-light);
+    font-weight: bold;
+    font-size: 1.25rem; /* text-xl, reduced slightly for balance */
+    padding: 0.5rem 1rem;
+    background-color: var(--card-background-light);
+    border-radius: var(--border-radius-md); /* More rounded */
+    box-shadow: var(--shadow-md); /* More prominent shadow */
+    border: 1px solid var(--border-color-light);
+}
+.dark #timer-container {
+    color: var(--accent-color-dark);
+    background-color: var(--card-background-dark);
+    border-color: var(--border-color-dark);
+}
+#timer-container svg {
+    width: 1.5rem; /* w-6 */
+    height: 1.5rem; /* h-6 */
+}
+
+
+/* Quiz Question Styling */
+.question-block {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    background-color: var(--card-background-light);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color-light);
+    transition: box-shadow 0.2s ease;
+}
+.dark .question-block {
+    background-color: var(--card-background-dark);
+    border-color: var(--border-color-dark);
+}
+.question-block:last-child {
+    margin-bottom: 0;
+    border-bottom: 1px solid var(--border-color-light); /* Ensure border for last item if it was removed by global */
+}
+.dark .question-block:last-child {
+     border-bottom: 1px solid var(--border-color-dark);
+}
+
+
+.question-block h3 { /* Question text */
+    font-size: 1.125rem; /* text-lg */
+    font-weight: 600; /* font-semibold */
+    margin-bottom: 1rem;
+    color: var(--text-color-light);
+}
+.dark .question-block h3 {
+    color: var(--text-color-dark);
+}
+
+.question-block img {
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--border-color-light);
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    max-width: 100%; /* Ensure responsiveness */
+    height: auto;
+}
+.dark .question-block img {
+    border-color: var(--border-color-dark);
+}
+
+/* Result Page: Incorrect Answer Item Styling */
+.incorrect-answer-item {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: rgba(239, 68, 68, 0.05); /* Light red background for incorrect items */
+    border: 1px solid rgba(239, 68, 68, 0.2); /* Light red border */
+    border-left-width: 4px;
+    border-left-color: var(--user-answer-incorrect-color, #EF4444); /* red-500, define if not already */
+    border-radius: var(--border-radius-sm);
+    transition: box-shadow 0.2s ease;
+}
+.dark .incorrect-answer-item {
+    background-color: rgba(248, 113, 113, 0.1); /* Lighter red background for dark mode */
+    border-color: rgba(248, 113, 113, 0.3);
+    border-left-color: var(--user-answer-incorrect-dark-color, #F87171); /* red-400 */
+}
+
+.incorrect-answer-item p {
+    margin-bottom: 0.5rem;
+}
+.incorrect-answer-item p:last-child {
+    margin-bottom: 0;
+}
+
+.incorrect-answer-item .question-text {
+    font-weight: 600; /* semibold */
+    color: var(--text-color-light);
+}
+.dark .incorrect-answer-item .question-text {
+    color: var(--text-color-dark);
+}
+
+.incorrect-answer-item img {
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--border-color-light);
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+    max-width: 100%;
+    height: auto;
+}
+.dark .incorrect-answer-item img {
+    border-color: var(--border-color-dark);
+}
+
+/* Adding variable for user-answer-incorrect color for border */
+:root {
+    --user-answer-incorrect-color: #EF4444; /* red-500 */
+    --user-answer-incorrect-dark-color: #F87171; /* red-400 */
+    /* ... other root variables ... */
+}
+.user-answer-incorrect {
+    color: var(--user-answer-incorrect-color);
+    /* text-decoration: line-through; Keep if desired, or remove for cleaner look with icons */
+    /* text-decoration-thickness: 2px; */
+    font-weight: 500; /* medium */
+}
+.dark .user-answer-incorrect {
+    color: var(--user-answer-incorrect-dark-color);
+}
+.user-answer-incorrect::before {
+    content: "✕ "; /* Cross mark icon */
+    color: var(--user-answer-incorrect-color);
+    font-weight: bold;
+    margin-right: 0.25rem;
+}
+.dark .user-answer-incorrect::before {
+    color: var(--user-answer-incorrect-dark-color);
+}
+
+.correct-answer-review::before {
+    content: "✓ "; /* Check mark icon */
+    color: var(--secondary-color-light);
+    font-weight: bold;
+    margin-right: 0.25rem;
+}
+.dark .correct-answer-review::before {
+     color: var(--secondary-color-dark);
+}
+
+/* Page Section Transitions */
+section {
+    /* opacity: 0; */ /* Initial opacity will be handled by 'hidden' or dynamically */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+section.fade-in-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+section.fade-out-active { /* Prepare for fade out if needed, or just rely on hidden */
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+/* Initial state for sections that will be faded in */
+.page-section {
+    opacity: 0;
+    transform: translateY(10px);
+    will-change: opacity, transform; /* Performance hint */
+}
+.page-section.hidden { /* Keep hidden class functional */
+    display: none;
+}
+
+
+/* Card hover effect */
+.card:hover {
+    /* box-shadow: var(--shadow-lg, 0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -4px rgba(0,0,0,.1)); */ /* Example of larger shadow */
+    /* border-color: var(--primary-color-light); */ /* Can be too much if cards are close */
+}
+/* .dark .card:hover {
+    border-color: var(--primary-color-dark);
+} */
+
+
+/* Loading Spinner Animation */
+.loading-spinner {
+    display: inline-block;
+    width: 2.5rem; /* w-10 */
+    height: 2.5rem; /* h-10 */
+    border: 4px solid rgba(0,0,0,0.1);
+    border-left-color: var(--primary-color-light);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 2rem auto; /* Center it if it's the only element */
+}
+.dark .loading-spinner {
+    border-left-color: var(--primary-color-dark);
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.loading-text {
+    text-align: center;
+    font-size: 1.125rem; /* text-lg */
+    color: var(--text-muted-light);
+    margin-top: 1rem;
+}
+.dark .loading-text {
+    color: var(--text-muted-dark);
 }

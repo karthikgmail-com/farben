@@ -6,6 +6,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const homePage = document.getElementById('home-page');
     const quizPage = document.getElementById('quiz-page');
     const resultPage = document.getElementById('result-page');
+    const allPages = [homePage, quizPage, resultPage];
+
+    // Function to switch pages with fade effect
+    function showPage(pageToShow) {
+        allPages.forEach(page => {
+            if (page === pageToShow) {
+                page.classList.remove('hidden');
+                // Delay adding fade-in-active to allow display:none to apply first
+                setTimeout(() => {
+                    page.classList.add('fade-in-active');
+                    page.classList.remove('fade-out-active'); // Ensure it's not trying to fade out
+                }, 20); // Small delay
+            } else {
+                page.classList.add('fade-out-active'); // Optional: for smoother transitions if needed
+                page.classList.remove('fade-in-active');
+                // Add hidden after transition or immediately if not using fade-out for hiding
+                 setTimeout(() => { // If not using CSS to hide after fade-out
+                    if (!page.classList.contains('fade-in-active')) { // double check it's not the page to show
+                        page.classList.add('hidden');
+                    }
+                }, 500); // Match CSS transition duration
+            }
+        });
+    }
+
 
     // Homepage elements
     const standardSelect = document.getElementById('standard-select');
@@ -163,22 +188,20 @@ document.addEventListener('DOMContentLoaded', () => {
     mixedQuestionsCheckbox.addEventListener('change', toggleLessonSelect);
 
     startQuizBtn.addEventListener('click', () => {
-        // Navigate to quiz page (logic will be in next step)
         console.log("Starting quiz with:", currentStandard, currentSubject, currentLesson, isMixedMode);
-        homePage.classList.add('hidden');
-        quizPage.classList.remove('hidden');
-        // loadQuestionsAndStart(); // This function will be implemented next
+        showPage(quizPage);
+        loadQuestionsAndStart();
     });
 
     returnHomeBtn.addEventListener('click', () => {
-        resultPage.classList.add('hidden');
-        resultPage.classList.remove('slide-in');
-        homePage.classList.remove('hidden');
+        resultPage.classList.remove('slide-in'); // remove specific animation for result if any
+        showPage(homePage);
         resetQuizSelections();
     });
 
     // Initialize
-    updateSubjectOptions(); // Initial call in case of pre-filled values (though unlikely here)
+    updateSubjectOptions();
+    showPage(homePage); // Show initial page
 
     // --- Quiz Logic ---
     let userAnswers = [];
@@ -203,7 +226,13 @@ document.addEventListener('DOMContentLoaded', () => {
         userAnswers = [];
         currentQuestionIndex = 0;
         score = 0;
-        quizContent.innerHTML = '<p>Loading questions...</p>'; // Loading indicator
+        // quizContent.innerHTML = '<p>Loading questions...</p>'; // Loading indicator
+        quizContent.innerHTML = `
+            <div class="flex flex-col items-center justify-center p-8">
+                <div class="loading-spinner"></div>
+                <p class="loading-text">Loading questions...</p>
+            </div>
+        `;
 
         if (isMixedMode) {
             // Fetch from all lessons in the subject
@@ -236,10 +265,11 @@ document.addEventListener('DOMContentLoaded', () => {
         quizContent.innerHTML = ''; // Clear previous content
         questions.forEach((q, index) => {
             const questionElement = document.createElement('div');
-            questionElement.classList.add('mb-8', 'p-4', 'border-b', 'dark:border-gray-700');
+            // Apply the new question-block class, remove old specific Tailwind classes for structure
+            questionElement.classList.add('question-block');
             questionElement.innerHTML = `
-                <h3 class="text-lg font-semibold mb-3">${index + 1}. ${q.question}</h3>
-                ${q.image ? `<img src="${q.image}" alt="Question image" class="my-2 max-w-xs rounded-md">` : ''}
+                <h3>${index + 1}. ${q.question}</h3>
+                ${q.image ? `<img src="${q.image}" alt="Question image">` : ''}
                 <div class="space-y-2">
                     ${q.options.map((option, i) => `
                         <label for="q${index}_option${i}" class="quiz-option block dark:hover:bg-gray-700 hover:bg-gray-100">
@@ -306,14 +336,27 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!isAutoSubmit) {
             // Could add a confirmation here if desired
         }
-        showResults();
+        // showResults(); // Called by submitQuiz, which in turn calls showPage
+        navigateToResultsPage();
     }
 
-    function showResults() {
-        quizPage.classList.add('hidden');
-        resultPage.classList.remove('hidden');
-        resultPage.classList.add('slide-in'); // For animation
+    function navigateToResultsPage() {
+        showPage(resultPage);
+        // The slide-in for result page is handled by its own class logic if needed,
+        // but general fade-in is now primary.
+        // Ensure slide-in specific class is added if it's different from the general fade
+        const resultCard = resultPage.querySelector('.card');
+        if (resultCard) {
+             // Remove previous animation classes if any, then add
+            resultCard.classList.remove('slide-in'); // remove if it was there
+            void resultCard.offsetWidth; // Force reflow
+            resultCard.classList.add('slide-in'); // Add the specific animation for result card
+        }
 
+        renderResults();
+    }
+
+    function renderResults() { // Renamed from showResults to avoid confusion with showPage
         const totalQuestions = questions.length;
         const percentage = totalQuestions > 0 ? Math.round((score / totalQuestions) * 100) : 0;
 
@@ -333,10 +376,10 @@ document.addEventListener('DOMContentLoaded', () => {
         questions.forEach((q, index) => {
             if (userAnswers[index] !== q.answer) {
                 const item = document.createElement('div');
-                item.classList.add('mb-4', 'p-3', 'bg-gray-50', 'dark:bg-gray-700', 'rounded-md');
+                item.classList.add('incorrect-answer-item'); // New class for overall item styling
                 item.innerHTML = `
-                    <p class="font-semibold">${index + 1}. ${q.question}</p>
-                    ${q.image ? `<img src="${q.image}" alt="Question image" class="my-1 max-w-xs rounded-md">` : ''}
+                    <p class="question-text">${index + 1}. ${q.question}</p>
+                    ${q.image ? `<img src="${q.image}" alt="Question image">` : ''}
                     <p>Your answer: <span class="user-answer-incorrect">${userAnswers[index] || "Not answered"}</span></p>
                     <p>Correct answer: <span class="correct-answer-review">${q.answer}</span></p>
                 `;
@@ -368,28 +411,21 @@ document.addEventListener('DOMContentLoaded', () => {
         timerDisplay.textContent = "00:00";
         quizContent.innerHTML = '';
         progressIndicator.textContent = '';
-        resultPage.classList.add('hidden');
-        resultPage.classList.remove('slide-in');
+        // resultPage.classList.add('hidden'); // Handled by showPage
+        const resultCard = resultPage.querySelector('.card');
+        if (resultCard) resultCard.classList.remove('slide-in');
         // Selections (standard, subject, etc.) are kept for retake
     }
 
 
     // --- Update Event Listeners ---
-    startQuizBtn.addEventListener('click', () => {
-        console.log("Starting quiz with:", currentStandard, currentSubject, currentLesson, isMixedMode);
-        homePage.classList.add('hidden');
-        quizPage.classList.remove('hidden');
-        resultPage.classList.add('hidden'); // Ensure result page is hidden
-        resultPage.classList.remove('slide-in');
-        loadQuestionsAndStart();
-    });
+    // startQuizBtn listener is already updated to use showPage(quizPage)
 
     submitQuizBtn.addEventListener('click', () => submitQuiz(false));
 
     retakeQuizBtn.addEventListener('click', () => {
         resetQuizStateForRetake();
-        // Navigate back to quiz page and reload questions
-        quizPage.classList.remove('hidden');
+        showPage(quizPage); // Navigate back to quiz page
         loadQuestionsAndStart();
     });
 

@@ -7,19 +7,19 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-500">
+<body>
 
     <!-- Homepage Section -->
-    <section id="home-page" class="container mx-auto p-4">
+    <section id="home-page" class="page-section container mx-auto p-4"> <!-- Added page-section -->
         <header class="text-center py-8">
             <h1 class="text-4xl font-bold">TN Board MCQ Practice</h1>
-            <p class="text-xl text-gray-600 dark:text-gray-400">Select your standard, subject, and lesson to start.</p>
+            <p class="text-xl text-muted">Select your standard, subject, and lesson to start.</p>
         </header>
 
-        <div class="max-w-lg mx-auto bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+        <div class="max-w-lg mx-auto card">
             <div class="mb-4">
                 <label for="standard-select" class="block text-sm font-medium mb-2">Standard:</label>
-                <select id="standard-select" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700">
+                <select id="standard-select" class="w-full">
                     <option value="">-- Select Standard --</option>
                     <option value="+1">+1</option>
                     <option value="+2">+2</option>
@@ -28,7 +28,7 @@
 
             <div class="mb-4">
                 <label for="subject-select" class="block text-sm font-medium mb-2">Subject:</label>
-                <select id="subject-select" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700" disabled>
+                <select id="subject-select" class="w-full" disabled>
                     <option value="">-- Select Subject --</option>
                     {/* Options will be populated by JS */}
                 </select>
@@ -36,23 +36,23 @@
 
             <div class="mb-4">
                 <label for="lesson-select" class="block text-sm font-medium mb-2">Lesson:</label>
-                <select id="lesson-select" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700" disabled>
+                <select id="lesson-select" class="w-full" disabled>
                     <option value="">-- Select Lesson --</option>
                     {/* Options will be populated by JS */}
                 </select>
             </div>
 
-            <div class="mb-6">
-                <input type="checkbox" id="mixed-questions-checkbox" class="mr-2">
-                <label for="mixed-questions-checkbox" class="text-sm font-medium">Mixed Questions (from all lessons in subject)</label>
+            <div class="mb-6 flex items-center">
+                <input type="checkbox" id="mixed-questions-checkbox">
+                <label for="mixed-questions-checkbox" class="ml-2 text-sm font-medium">Mixed Questions (from all lessons in subject)</label>
             </div>
 
-            <button id="start-quiz-btn" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md transition duration-300" disabled>
+            <button id="start-quiz-btn" class="w-full btn btn-primary" disabled>
                 Start Quiz
             </button>
         </div>
-         <div class="absolute top-4 right-4">
-            <button id="dark-mode-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
+         <div class="fixed top-4 right-4"> <!-- Changed to fixed for better positioning -->
+            <button id="dark-mode-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
                 <svg id="sun-icon" class="w-6 h-6 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M12 5a7 7 0 100 14 7 7 0 000-14z"></path></svg>
                 <svg id="moon-icon" class="w-6 h-6 text-gray-400 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
             </button>
@@ -60,47 +60,53 @@
     </section>
 
     <!-- Quiz Section -->
-    <section id="quiz-page" class="container mx-auto p-4 hidden">
-        <div class="max-w-3xl mx-auto bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+    <section id="quiz-page" class="page-section container mx-auto p-4 hidden"> <!-- Added page-section -->
+        <div class="max-w-3xl mx-auto card">
             <div class="flex justify-between items-center mb-6">
-                <div id="progress-indicator" class="text-sm font-medium text-gray-700 dark:text-gray-300">Question 1 of X</div>
-                <div id="timer" class="text-xl font-bold text-red-500">00:00</div>
+                <div id="progress-indicator" class="text-sm font-medium text-muted">Question 1 of X</div>
+                <div id="timer-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span id="timer">00:00</span>
+                </div>
             </div>
 
             <div id="quiz-content">
                 {/* Questions will be loaded here by JS */}
             </div>
 
-            <button id="submit-quiz-btn" class="mt-8 w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md transition duration-300">
+            <button id="submit-quiz-btn" class="mt-8 w-full btn btn-secondary">
                 Submit Test
             </button>
         </div>
     </section>
 
     <!-- Result Section -->
-    <section id="result-page" class="container mx-auto p-4 hidden">
-        <div class="max-w-lg mx-auto bg-white dark:bg-gray-800 p-8 rounded-lg shadow-xl text-center">
-            <h2 class="text-3xl font-bold mb-4">Quiz Results</h2>
+    <section id="result-page" class="page-section container mx-auto p-4 hidden"> <!-- Added page-section -->
+        <!-- The slide-in animation is applied to this inner div now -->
+        <div class="max-w-lg mx-auto card text-center">
+            <h2 class="text-3xl font-bold mb-2 text-primary">Quiz Results</h2>
             <div id="score-summary" class="mb-6">
-                <p class="text-xl">Your Score: <span id="score" class="font-bold">0 / 0</span> (<span id="percentage" class="font-bold">0%</span>)</p>
-                <p id="result-message" class="text-lg mt-2 italic">Keep practicing!</p>
+                <p class="text-xl">Your Score: <span id="score" class="font-bold text-2xl text-accent">0 / 0</span> (<span id="percentage" class="font-bold text-2xl text-accent">0%</span>)</p>
+                <p id="result-message" class="text-lg mt-2 italic text-muted">Keep practicing!</p>
             </div>
 
-            <div id="confetti-container" class="absolute inset-0 pointer-events-none"></div>
+            <div id="confetti-container" class="fixed inset-0 pointer-events-none z-50"></div>
 
 
             <div id="detailed-review" class="mt-6 text-left">
-                <h3 class="text-xl font-semibold mb-3">Incorrect Answers:</h3>
+                <h3 class="text-xl font-semibold mb-3 text-primary">Incorrect Answers:</h3>
                 <div id="incorrect-answers-list">
                     {/* Incorrect answers will be listed here by JS */}
                 </div>
             </div>
 
-            <div class="mt-8 flex justify-around">
-                <button id="retake-quiz-btn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-md transition duration-300">
+            <div class="mt-8 flex flex-col sm:flex-row justify-around space-y-4 sm:space-y-0 sm:space-x-4">
+                <button id="retake-quiz-btn" class="btn btn-primary w-full sm:w-auto">
                     Retake Test
                 </button>
-                <button id="return-home-btn" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-6 rounded-md transition duration-300">
+                <button id="return-home-btn" class="btn btn-neutral w-full sm:w-auto">
                     Return to Home
                 </button>
             </div>
