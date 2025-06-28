@@ -5,17 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultPage = document.getElementById('result-page');
 
     // Homepage elements
-    const standardSelectionCardsContainer = document.getElementById('standard-selection-cards');
-    const standardSelectInput = document.getElementById('standard-select'); // Hidden input to store value
+    // Revert to actual select dropdowns
+    const standardSelect = document.getElementById('standard-select');
+    const subjectSelect = document.getElementById('subject-select');
+    const lessonSelect = document.getElementById('lesson-select');
 
-    const subjectSelectionArea = document.getElementById('subject-selection-area');
-    const subjectSelectionCardsContainer = document.getElementById('subject-selection-cards');
-    const subjectSelectInput = document.getElementById('subject-select'); // Hidden input
-
-    const lessonSelectionArea = document.getElementById('lesson-selection-area');
-    const lessonSelect = document.getElementById('lesson-select'); // Actual select element
-
-    const mixedModeArea = document.getElementById('mixed-mode-area');
     const mixedQuestionsCheckbox = document.getElementById('mixed-questions-checkbox');
     const startQuizBtn = document.getElementById('start-quiz-btn');
 
@@ -91,76 +85,35 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Handle Standard Card Selection
-    standardSelectionCardsContainer.addEventListener('click', (event) => {
-        const card = event.target.closest('.standard-card');
-        if (!card) return;
-
-        currentStandard = card.dataset.value;
-        standardSelectInput.value = currentStandard; // Update hidden input
-
-        // Update visual selection
-        standardSelectionCardsContainer.querySelectorAll('.standard-card').forEach(c => c.classList.remove('selected'));
-        card.classList.add('selected');
-
-        updateSubjectDisplay();
-        lessonSelectionArea.classList.add('hidden'); // Hide lesson until subject is chosen
-        mixedModeArea.classList.add('hidden'); // Hide mixed mode until subject is chosen
-        checkCanStart();
-    });
-
-    function updateSubjectDisplay() {
-        subjectSelectionCardsContainer.innerHTML = ''; // Clear previous subject cards
-        subjectSelectInput.value = ''; // Clear hidden subject input
-        currentSubject = ''; // Clear current subject state
-        lessonSelect.innerHTML = '<option value="">-- Select Lesson --</option>'; // Reset lesson dropdown
+    // Reverted Homepage Logic (using dropdowns)
+    function updateSubjectOptions() {
+        currentStandard = standardSelect.value; // From actual select
+        subjectSelect.innerHTML = '<option value="">-- Select Subject --</option>';
+        lessonSelect.innerHTML = '<option value="">-- Select Lesson --</option>';
+        subjectSelect.disabled = true;
         lessonSelect.disabled = true;
-
+        startQuizBtn.disabled = true;
 
         if (currentStandard && availableData[currentStandard]) {
-            subjectSelectionArea.classList.remove('hidden');
             Object.keys(availableData[currentStandard]).forEach(subjectName => {
-                const subjectValue = subjectName.toLowerCase();
-                const card = document.createElement('button');
-                card.classList.add('subject-card', 'group', 'p-4', 'bg-gray-50', 'dark:bg-gray-700', 'rounded-lg', 'border-2', 'border-transparent', 'hover:border-blue-500', 'dark:hover:border-blue-400', 'transition-all', 'duration-200', 'ease-in-out', 'text-center');
-                card.dataset.value = subjectValue;
-                // Simple text for now, could add icons based on subjectName
-                card.innerHTML = `<span class="font-semibold text-gray-700 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-300">${subjectName}</span>`;
-                subjectSelectionCardsContainer.appendChild(card);
+                const option = document.createElement('option');
+                option.value = subjectName.toLowerCase();
+                option.textContent = subjectName;
+                subjectSelect.appendChild(option);
             });
-        } else {
-            subjectSelectionArea.classList.add('hidden');
+            subjectSelect.disabled = false;
         }
-        lessonSelectionArea.classList.add('hidden');
-        mixedModeArea.classList.add('hidden');
         checkCanStart();
     }
 
-    // Handle Subject Card Selection
-    subjectSelectionCardsContainer.addEventListener('click', (event) => {
-        const card = event.target.closest('.subject-card');
-        if (!card) return;
-
-        currentSubject = card.dataset.value;
-        subjectSelectInput.value = currentSubject;
-
-        subjectSelectionCardsContainer.querySelectorAll('.subject-card').forEach(c => c.classList.remove('selected'));
-        card.classList.add('selected');
-
-        updateLessonOptions();
-        mixedModeArea.classList.remove('hidden');
-        checkCanStart();
-    });
-
-
     function updateLessonOptions() {
+        currentSubject = subjectSelect.value; // From actual select
         lessonSelect.innerHTML = '<option value="">-- Select Lesson --</option>';
         lessonSelect.disabled = true;
 
         if (currentStandard && currentSubject && availableData[currentStandard]) {
             const subjectKeyOriginal = Object.keys(availableData[currentStandard]).find(k => k.toLowerCase() === currentSubject);
             if (subjectKeyOriginal && availableData[currentStandard][subjectKeyOriginal]) {
-                lessonSelectionArea.classList.remove('hidden');
                 availableData[currentStandard][subjectKeyOriginal].forEach(lessonFile => {
                     const lessonName = lessonFile.replace('.json', '');
                     const option = document.createElement('option');
@@ -169,11 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     lessonSelect.appendChild(option);
                 });
                 lessonSelect.disabled = mixedQuestionsCheckbox.checked;
-            } else {
-                lessonSelectionArea.classList.add('hidden');
             }
-        } else {
-            lessonSelectionArea.classList.add('hidden');
         }
         checkCanStart();
     }
@@ -184,20 +133,20 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isMixedMode) {
             lessonSelect.value = '';
             currentLesson = '';
-        } else if (lessonSelect.options.length > 1) { // If lessons available and not mixed mode
-             lessonSelect.disabled = false; // Re-enable if disabled by mixed mode
+        } else if(lessonSelect.options.length > 1 && currentSubject) { // Check if subject selected
+             lessonSelect.disabled = false;
         }
         checkCanStart();
     });
 
-    lessonSelect.addEventListener('change', () => { // Added event listener for lesson select
+    lessonSelect.addEventListener('change', () => {
         currentLesson = lessonSelect.value;
         checkCanStart();
     });
 
-
     function checkCanStart() {
-        // currentLesson is updated by its own event listener or when mixed mode is toggled
+        // currentStandard and currentSubject are from select dropdowns
+        // currentLesson is from lessonSelect dropdown
         if (currentStandard && currentSubject && (currentLesson || isMixedMode)) {
             startQuizBtn.disabled = false;
         } else {
@@ -211,22 +160,22 @@ document.addEventListener('DOMContentLoaded', () => {
         currentLesson = '';
         isMixedMode = false;
 
-        standardSelectInput.value = '';
-        subjectSelectInput.value = '';
-        standardSelectionCardsContainer.querySelectorAll('.standard-card').forEach(c => c.classList.remove('selected'));
+        standardSelect.value = ''; // Reset actual select
+        subjectSelect.innerHTML = '<option value="">-- Select Subject --</option>';
+        subjectSelect.disabled = true;
 
-        subjectSelectionArea.classList.add('hidden');
-        subjectSelectionCardsContainer.innerHTML = '';
-
-        lessonSelectionArea.classList.add('hidden');
         lessonSelect.innerHTML = '<option value="">-- Select Lesson --</option>';
         lessonSelect.disabled = true;
 
-        mixedModeArea.classList.add('hidden');
         mixedQuestionsCheckbox.checked = false;
-
         startQuizBtn.disabled = true;
     }
+
+    // Event listeners for original dropdowns
+    standardSelect.addEventListener('change', updateSubjectOptions);
+    subjectSelect.addEventListener('change', updateLessonOptions);
+    // lessonSelect and mixedQuestionsCheckbox listeners are already above
+
 
     async function fetchQuestions(std, subj, less) {
         const path = `data/${std}/${subj}/${less}.json`;
@@ -287,16 +236,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 imageHTML = `<img src="${q.image}" alt="Question image ${index + 1}" class="my-2 max-w-xs rounded-md shadow-sm mx-auto sm:mx-0">`;
             }
 
+            let decodedQuestion = "Error: Could not decode question.";
+            try {
+                decodedQuestion = atob(q.question);
+            } catch (e) {
+                console.error("Error decoding question text:", q.question, e);
+            }
+
             questionElement.innerHTML = `
-                <h3 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-200">${index + 1}. ${q.question}</h3>
+                <h3 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-200">${index + 1}. ${decodedQuestion}</h3>
                 ${imageHTML}
                 <div class="space-y-2 mt-2">
-                    ${q.options.map((option, i) => `
+                    ${q.options.map((encodedOption, i) => {
+                        let decodedOption = "Error: Could not decode option.";
+                        try {
+                            decodedOption = atob(encodedOption);
+                        } catch (e) {
+                            console.error("Error decoding option:", encodedOption, e);
+                        }
+                        return `
                         <label for="${questionId}_option${i}" class="quiz-option">
-                            <input type="radio" name="${questionId}" id="${questionId}_option${i}" value="${option}" class="mr-2 sr-only">
-                            <span class="option-text">${option}</span>
+                            <input type="radio" name="${questionId}" id="${questionId}_option${i}" value="${decodedOption}" class="mr-2 sr-only">
+                            <span class="option-text">${decodedOption}</span>
                         </label>
-                    `).join('')}
+                        `;
+                    }).join('')}
                 </div>
             `;
             quizContent.appendChild(questionElement);
@@ -305,13 +269,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const radioLabels = questionElement.querySelectorAll('.quiz-option');
             radioLabels.forEach(label => {
                 label.addEventListener('click', (event) => {
-                    // Find the actual radio button associated with the clicked label
                     const associatedRadio = label.querySelector('input[type="radio"]');
                     if (associatedRadio) {
-                        associatedRadio.checked = true; // Ensure radio is checked
-                        userAnswers[index] = associatedRadio.value; // Store the value
+                        associatedRadio.checked = true;
+                        // userAnswers[index] should store the decoded value, which is already set as radio's value
+                        userAnswers[index] = associatedRadio.value;
 
-                        // Update visual selection for all options of this question
                         questionElement.querySelectorAll('.quiz-option').forEach(optLabel => {
                             optLabel.classList.remove('selected', 'font-semibold');
                         });
@@ -427,14 +390,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (q.image) {
                     imageReviewHTML = `<img src="${q.image}" alt="Question image ${index + 1}" class="my-1 max-w-xs rounded-md mx-auto sm:mx-0">`;
                 }
+                let decodedQuestionForReview = "Error: Could not decode question text.";
+                try {
+                    // q.question is still encoded here as it comes from the original 'questions' array
+                    decodedQuestionForReview = atob(q.question);
+                } catch (e) {
+                    console.error("Error decoding question for review:", q.question, e);
+                }
+
                 let correctAnswerForReview = "Error: Could not decode answer.";
                 try {
                     correctAnswerForReview = atob(q.answer); // Decode for display
                 } catch (e) {
-                    console.error("Error decoding answer for review:", q.question, e);
+                    // Error already logged in submitQuiz, but good to be safe or if called independently
+                    console.error("Error decoding answer for review (already logged?):", q.answer, e);
                 }
                 item.innerHTML = `
-                    <p class="font-semibold text-gray-800 dark:text-gray-200">${index + 1}. ${q.question}</p>
+                    <p class="font-semibold text-gray-800 dark:text-gray-200">${index + 1}. ${decodedQuestionForReview}</p>
                     ${imageReviewHTML}
                     <p class="text-sm">Your answer: <span class="user-answer-incorrect">${userAnswers[index] || "Not answered"}</span></p>
                     <p class="text-sm">Correct answer: <span class="correct-answer-review">${correctAnswerForReview}</span></p>

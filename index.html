@@ -16,47 +16,38 @@
             <p class="text-xl text-gray-600 dark:text-gray-400">Select your standard, subject, and lesson to start.</p>
         </header>
 
-        <div class="max-w-xl mx-auto bg-white dark:bg-gray-800 p-6 sm:p-8 rounded-xl shadow-2xl">
-            <!-- Standard Selection -->
-            <div class="mb-6">
-                <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-3 text-center">Choose Your Standard</h3>
-                <div id="standard-selection-cards" class="grid grid-cols-2 gap-4">
-                    <button data-value="+1" class="standard-card group flex flex-col items-center justify-center p-6 bg-gray-50 dark:bg-gray-700 rounded-lg border-2 border-transparent hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-200 ease-in-out transform hover:scale-105">
-                        <span class="text-4xl mb-2">📖</span> <!-- Icon placeholder -->
-                        <span class="text-xl font-bold text-gray-800 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-300">+1</span>
-                    </button>
-                    <button data-value="+2" class="standard-card group flex flex-col items-center justify-center p-6 bg-gray-50 dark:bg-gray-700 rounded-lg border-2 border-transparent hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-200 ease-in-out transform hover:scale-105">
-                        <span class="text-4xl mb-2">📚</span> <!-- Icon placeholder -->
-                        <span class="text-xl font-bold text-gray-800 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-300">+2</span>
-                    </button>
-                </div>
-                <input type="hidden" id="standard-select" value="">
+        <div class="max-w-lg mx-auto bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+            <div class="mb-4">
+                <label for="standard-select" class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">Standard:</label>
+                <select id="standard-select" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-gray-100 custom-select appearance-none">
+                    <option value="">-- Select Standard --</option>
+                    <option value="+1">+1</option>
+                    <option value="+2">+2</option>
+                </select>
             </div>
 
-            <!-- Subject Selection (populated by JS) -->
-            <div id="subject-selection-area" class="mb-6 hidden">
-                <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-3 text-center">Select Subject</h3>
-                <div id="subject-selection-cards" class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                    {/* Subject cards will be populated here by JS */}
-                </div>
-                <input type="hidden" id="subject-select" value="">
+            <div class="mb-4">
+                <label for="subject-select" class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">Subject:</label>
+                <select id="subject-select" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-gray-100 custom-select appearance-none" disabled>
+                    <option value="">-- Select Subject --</option>
+                    {/* Options will be populated by JS */}
+                </select>
             </div>
 
-            <!-- Lesson Selection (remains a dropdown for now) -->
-            <div id="lesson-selection-area" class="mb-6 hidden">
-                <label for="lesson-select" class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">Select Lesson:</label>
-                <select id="lesson-select" class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg dark:bg-gray-700 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 outline-none appearance-none custom-select">
+            <div class="mb-4">
+                <label for="lesson-select" class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">Lesson:</label>
+                <select id="lesson-select" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-gray-100 custom-select appearance-none" disabled>
                     <option value="">-- Select Lesson --</option>
                     {/* Options will be populated by JS */}
                 </select>
             </div>
 
-            <div id="mixed-mode-area" class="mb-6 flex items-center hidden">
-                <input type="checkbox" id="mixed-questions-checkbox" class="h-5 w-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
-                <label for="mixed-questions-checkbox" class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Mixed Questions (from all lessons in subject)</label>
+            <div class="mb-6 flex items-center">
+                <input type="checkbox" id="mixed-questions-checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
+                <label for="mixed-questions-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Mixed Questions (from all lessons in subject)</label>
             </div>
 
-            <button id="start-quiz-btn" class="w-full bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 ease-in-out transform hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed" disabled>
+            <button id="start-quiz-btn" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 disabled:opacity-50" disabled>
                 Start Quiz
             </button>
         </div>

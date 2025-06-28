@@ -104,47 +104,22 @@ label { /* General label color for dark mode if not overridden by more specific 
     color: #D1D5DB; /* gray-300 */
 }
 
-/* Homepage Card Enhancements */
-.standard-card, .subject-card {
-    cursor: pointer;
-    /* Base styles are mostly Tailwind classes in HTML, add specific overrides here if needed */
-}
-
-.standard-card.selected, .subject-card.selected {
-    border-color: #3b82f6; /* Tailwind blue-500 */
-    background-color: #eff6ff; /* Tailwind blue-100 */
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3); /* Ring effect */
-}
-.dark .standard-card.selected, .dark .subject-card.selected {
-    border-color: #60a5fa; /* Tailwind blue-400 */
-    background-color: #253656; /* A darker blue */
-    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.4);
-}
-
-.standard-card.selected .group-hover\:text-blue-600,
-.standard-card.selected span:not([class*="text-4xl"]), /* Target text specifically if needed */
-.subject-card.selected .group-hover\:text-blue-600,
-.subject-card.selected span {
-    color: #2563eb; /* Tailwind blue-600 */
-}
-
-.dark .standard-card.selected .group-hover\:text-blue-300,
-.dark .standard-card.selected span:not([class*="text-4xl"]),
-.dark .subject-card.selected .group-hover\:text-blue-300,
-.dark .subject-card.selected span {
-    color: #93c5fd; /* Tailwind blue-300 */
-}
-
-
 /* Custom styled select for lesson dropdown - enhance if needed */
-.custom-select {
+/* This .custom-select was already in the initial CSS, ensure it's correctly defined or enhance.
+   The HTML for select elements now includes 'appearance-none' and 'custom-select'
+   so these styles will apply.
+*/
+select.custom-select { /* Make selector more specific if needed */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20fill%3D%22none%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20stroke%3D%22%236B7280%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%221.5%22%20d%3D%22M6%208l4%204%204-4%22%2F%3E%3C%2Fsvg%3E');
     background-repeat: no-repeat;
     background-position: right 0.75rem center;
-    background-size: 1.25em 1.25em;
-    padding-right: 2.5rem; /* Make space for custom arrow */
+    background-size: 1em 1em; /* Adjusted size slightly */
+    padding-right: 2.5rem;
 }
-.dark .custom-select {
+.dark select.custom-select {
      background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20fill%3D%22none%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20stroke%3D%22%239CA3AF%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%221.5%22%20d%3D%22M6%208l4%204%204-4%22%2F%3E%3C%2Fsvg%3E');
 }
 
