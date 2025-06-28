@@ -1,0 +1,14 @@
+[
+  {
+    "question": "What is the unit of electric charge?",
+    "options": ["Ampere", "Volt", "Coulomb", "Ohm"],
+    "answer": "Coulomb",
+    "image": null
+  },
+  {
+    "question": "Ohm's Law is given by:",
+    "options": ["V = IR", "P = VI", "V = I/R", "R = V/I"],
+    "answer": "V = IR",
+    "image": null
+  }
+]

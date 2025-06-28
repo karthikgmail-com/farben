@@ -1,0 +1,19 @@
+[
+  {
+    "question": "What is the law of conservation of energy?",
+    "options": [
+      "Energy can be created but not destroyed",
+      "Energy cannot be created or destroyed, only transformed",
+      "Energy is always lost as heat",
+      "Energy is constant in a closed system only if no work is done"
+    ],
+    "answer": "Energy cannot be created or destroyed, only transformed",
+    "image": null
+  },
+  {
+    "question": "Which Newton's law is also known as the law of inertia?",
+    "options": ["First Law", "Second Law", "Third Law", "Law of Gravitation"],
+    "answer": "First Law",
+    "image": null
+  }
+]

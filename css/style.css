@@ -1,0 +1,85 @@
+/* Basic body styling for smooth transitions if needed */
+body {
+    transition: background-color 0.5s, color 0.5s;
+}
+
+/* Additional custom styles can go here if Tailwind isn't enough */
+
+/* Styling for quiz options */
+.quiz-option {
+    display: block;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #e2e8f0; /* Tailwind gray-300 */
+    border-radius: 0.375rem; /* Tailwind rounded-md */
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.quiz-option:hover {
+    background-color: #f7fafc; /* Tailwind gray-100 */
+}
+
+.quiz-option.selected {
+    background-color: #ebf8ff; /* Tailwind blue-100 */
+    border-color: #90cdf4; /* Tailwind blue-300 */
+}
+
+.dark .quiz-option {
+    border: 1px solid #4a5568; /* Tailwind dark:gray-600 */
+}
+
+.dark .quiz-option:hover {
+    background-color: #2d3748; /* Tailwind dark:gray-700 */
+}
+
+.dark .quiz-option.selected {
+    background-color: #2c5282; /* Tailwind dark:blue-700 example, adjust as needed */
+    border-color: #4299e1; /* Tailwind dark:blue-400 example */
+}
+
+
+/* Styling for correct/incorrect answers in review */
+.correct-answer-review {
+    color: #38a169; /* Tailwind green-600 */
+    font-weight: bold;
+}
+
+.user-answer-incorrect {
+    color: #e53e3e; /* Tailwind red-600 */
+    text-decoration: line-through;
+}
+
+.dark .correct-answer-review {
+    color: #68d391; /* Tailwind dark:green-400 */
+}
+
+.dark .user-answer-incorrect {
+    color: #fc8181; /* Tailwind dark:red-400 */
+}
+
+/* Simple slide-in animation for result page (optional) */
+@keyframes slideInUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+#result-page.slide-in {
+    animation: slideInUp 0.5s ease-out forwards;
+}
+
+#confetti-container {
+    position: fixed; /* Use fixed to cover the whole viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Important: allow clicks to pass through */
+    z-index: 9999; /* Ensure it's on top */
+}

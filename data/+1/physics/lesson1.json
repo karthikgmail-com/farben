@@ -1,0 +1,20 @@
+[
+  {
+    "question": "What is the SI unit of force?",
+    "options": ["Watt", "Joule", "Newton", "Pascal"],
+    "answer": "Newton",
+    "image": null
+  },
+  {
+    "question": "Which of the following is a scalar quantity?",
+    "options": ["Velocity", "Acceleration", "Force", "Speed"],
+    "answer": "Speed",
+    "image": null
+  },
+  {
+    "question": "What is the formula for kinetic energy?",
+    "options": ["mgh", "1/2 mv^2", "F = ma", "P = VI"],
+    "answer": "1/2 mv^2",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Kinetic_energy.gif/220px-Kinetic_energy.gif"
+  }
+]

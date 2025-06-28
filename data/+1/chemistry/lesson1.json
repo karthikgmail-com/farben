@@ -1,0 +1,14 @@
+[
+  {
+    "question": "What is the chemical symbol for water?",
+    "options": ["O2", "H2O", "CO2", "NaCl"],
+    "answer": "H2O",
+    "image": null
+  },
+  {
+    "question": "Which element has the atomic number 1?",
+    "options": ["Helium", "Oxygen", "Hydrogen", "Carbon"],
+    "answer": "Hydrogen",
+    "image": null
+  }
+]
