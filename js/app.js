@@ -30,16 +30,58 @@ document.addEventListener('DOMContentLoaded', () => {
     const retakeQuizBtn = document.getElementById('retake-quiz-btn');
     const returnHomeBtn = document.getElementById('return-home-btn');
 
-    // Motivational Quotes
+    // Consolidated Motivational Quotes
     const motivationalQuotes = [
-        "The expert in anything was once a beginner.",
-        "Don't watch the clock; do what it does. Keep going.",
-        "The only way to do great work is to love what you do.",
-        "Believe you can and you're halfway there.",
-        "The harder you work for something, the greater you'll feel when you achieve it.",
-        "Success is not final, failure is not fatal: It is the courage to continue that counts.",
-        "Push yourself, because no one else is going to do it for you.",
-        "Your limitation—it’s only your imagination."
+        "\"I trained 4 years to run 9 seconds and people give up after 2 months.\" — Usain Bolt",
+        "\"We’re not here to take part. We’re here to take over.\" — Conor McGregor",
+        "\"Be uncommon among uncommon people.\" — David Goggins",
+        "\"I’m the most brutal and most vicious champion there’s ever been.\" — Mike Tyson",
+        "\"I know I’m the best. I prove it every day.\" — Cristiano Ronaldo",
+        "\"I am the greatest. I said that before I knew I was.\" — Muhammad Ali",
+        "\"I saw myself being a champion long before I was.\" — Arnold Schwarzenegger",
+        "\"Be the hardest worker in the room.\" — Dwayne ‘The Rock’ Johnson",
+        "\"Some people want it to happen, some wish it would happen, others make it happen.\" — Michael Jordan",
+        "\"Discipline equals freedom.\" — Jocko Willink",
+        "\"I didn’t come this far to only come this far.\" — Tom Brady",
+        "\"I came like a king, left like a legend.\" — Zlatan Ibrahimović",
+        "\"If you want to take the island, burn the f**ing boats.\" — Tony Robbins", // Note: Asterisk added for safety
+        "\"I just want to be better every day.\" — Neymar Jr",
+        "\"I’m not the MVP because of numbers. I’m the MVP because I never quit.\" — Giannis Antetokounmpo",
+        "\"Your love makes me strong. Your hate makes me unstoppable.\" — Cristiano Ronaldo",
+        "\"I don’t think limits.\" — Usain Bolt",
+        "\"When you think you’re done, you’re only at 40%.\" — David Goggins",
+        "\"Fear is the greatest obstacle to learning. But fear is also your best friend.\" — Mike Tyson",
+        "\"Talent without working hard is nothing.\" — Cristiano Ronaldo",
+        "\"I'm young. I'm handsome. I'm fast. I can't possibly be beat.\" — Muhammad Ali",
+        "\"You can’t climb the ladder of success with your hands in your pockets.\" — Arnold Schwarzenegger",
+        "\"Success at anything will always come down to this: focus and effort. And we control both.\" — The Rock",
+        "\"I never lost a game. I just ran out of time.\" — Michael Jordan",
+        "\"Good. You failed? Good. Now learn. Adjust. Get stronger.\" — Jocko Willink",
+        "\"You push your body to the limits, but it’s the mind that breaks first.\" — Tom Brady",
+        "\"Lions don’t compare themselves to humans.\" — Zlatan Ibrahimović",
+        "\"Where focus goes, energy flows.\" — Tony Robbins",
+        "\"Pressure? What pressure? It’s my job. I love it.\" — Neymar Jr",
+        "\"I stay locked in. I’m obsessed with improvement.\" — Giannis Antetokounmpo",
+        "\"There are better starters than me, but I’m a strong finisher.\" — Usain Bolt",
+        "\"The most powerful weapon you have is your mind. Train it.\" — David Goggins",
+        "\"Everyone has a plan until they get punched in the mouth.\" — Mike Tyson",
+        "\"I don’t chase records. Records chase me.\" — Cristiano Ronaldo",
+        "\"It’s not bragging if you can back it up.\" — Muhammad Ali",
+        "\"Forget plan B. Plan A is all that matters.\" — Arnold Schwarzenegger",
+        "\"Blood, sweat, and respect. First two you give. Last one you earn.\" — The Rock",
+        "\"Once I made a decision, I never thought about it again.\" — Michael Jordan",
+        "\"Get after it. Every day. No matter what.\" — Jocko Willink",
+        "\"Every second counts. Don’t waste one.\" — Tom Brady",
+        "\"They bought a Ferrari and drove it like a Fiat.\" — Zlatan Ibrahimović",
+        "\"The only limit to your impact is your imagination and commitment.\" — Tony Robbins",
+        "\"Every day, I train like I’m starting from zero.\" — Neymar Jr",
+        "\"I work to be legendary.\" — Giannis Antetokounmpo",
+        "\"Why lie? I’m not going to be a hypocrite. I’m better than the rest.\" — Cristiano Ronaldo",
+        "\"Kill them with success. Bury them with a smile.\" — Usain Bolt",
+        "\"You will never learn from people if you always tap out when it gets hard.\" — David Goggins",
+        "\"Real freedom is having nothing. I was freer when I didn’t have a cent.\" — Mike Tyson",
+        "\"I see myself as the best footballer in the world.\" — Cristiano Ronaldo",
+        "\"If my mind can conceive it and my heart can believe it – then I can achieve it.\" — Muhammad Ali"
     ];
 
     // Dark Mode Toggle
@@ -378,9 +420,13 @@ document.addEventListener('DOMContentLoaded', () => {
             resultMessage.textContent = "Keep practicing! You can improve.";
         }
 
-        // Display a random motivational quote
-        const randomIndex = Math.floor(Math.random() * motivationalQuotes.length);
-        motivationalQuoteElement.textContent = `"${motivationalQuotes[randomIndex]}"`;
+        // Display a random motivational quote from the consolidated list
+        if (motivationalQuotes.length > 0) {
+            const randomIndex = Math.floor(Math.random() * motivationalQuotes.length);
+            motivationalQuoteElement.textContent = motivationalQuotes[randomIndex]; // Quotes already include " " and author
+        } else {
+            motivationalQuoteElement.textContent = ""; // Clear if no quotes
+        }
 
         incorrectAnswersList.innerHTML = '';
         let hasIncorrect = false;
