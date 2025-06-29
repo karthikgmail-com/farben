@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const subjectSelect = document.getElementById('subject-select');
     const lessonSelect = document.getElementById('lesson-select');
     const mixedQuestionsCheckbox = document.getElementById('mixed-questions-checkbox');
+    const customQuizSizeContainer = document.getElementById('custom-quiz-size-container');
+    const customQuizSizeInput = document.getElementById('custom-quiz-size');
     const startQuizBtn = document.getElementById('start-quiz-btn');
 
     // Quiz Page elements
@@ -137,10 +139,14 @@ document.addEventListener('DOMContentLoaded', () => {
         isMixedMode = mixedQuestionsCheckbox.checked;
         lessonSelect.disabled = isMixedMode;
         if (isMixedMode) {
+            customQuizSizeContainer.classList.remove('hidden');
             lessonSelect.value = '';
             currentLesson = '';
-        } else if(lessonSelect.options.length > 1 && currentSubject) {
-             lessonSelect.disabled = false;
+        } else {
+            customQuizSizeContainer.classList.add('hidden');
+            if(lessonSelect.options.length > 1 && currentSubject) {
+                 lessonSelect.disabled = false;
+            }
         }
         checkCanStart();
     }
@@ -196,7 +202,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 const results = await Promise.all(lessonPromises);
                 results.forEach(lessonQuestions => questions.push(...lessonQuestions));
-                questions.sort(() => Math.random() - 0.5);
+                questions.sort(() => Math.random() - 0.5); // Shuffle all fetched questions
+
+                let numQuestionsToLoad = parseInt(customQuizSizeInput.value, 10);
+                if (isNaN(numQuestionsToLoad) || numQuestionsToLoad < parseInt(customQuizSizeInput.min, 10) || numQuestionsToLoad > parseInt(customQuizSizeInput.max, 10)) {
+                    numQuestionsToLoad = 25; // Default to 25 if input is invalid or out of range
+                    customQuizSizeInput.value = "25"; // Reset input to default
+                }
+
+                if (questions.length > numQuestionsToLoad) {
+                    questions = questions.slice(0, numQuestionsToLoad);
+                }
+                // If questions.length is less than numQuestionsToLoad, all available questions will be used.
             }
         } else {
             questions = await fetchQuestions(currentStandard, currentSubject, currentLesson);
@@ -205,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (questions.length > 0) {
             userAnswers = new Array(questions.length).fill(null);
             displayQuiz();
-            startTimer(questions.length * 4 * 60); // 4 minutes per question
+            startTimer(questions.length * 2 * 60); // 2 minutes per question
         } else if (quizContent.innerHTML.includes('Loading questions...')) {
             quizContent.innerHTML = `<p class="text-center p-4 text-red-500 dark:text-red-400">No questions found. Please try different options.</p>`;
             submitQuizBtn.disabled = true;
@@ -228,12 +245,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // Question and options are plain text, no atob() needed here for this reverted version
+            const questionHeadingId = `question-heading-${index}`;
             questionElement.innerHTML = `
-                <h3 class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-200">${index + 1}. ${q.question}</h3>
+                <h3 id="${questionHeadingId}" class="text-lg font-semibold mb-3 text-gray-800 dark:text-gray-200">${index + 1}. ${q.question}</h3>
                 ${imageHTML}
-                <div class="space-y-2 mt-2">
+                <div role="radiogroup" aria-labelledby="${questionHeadingId}" class="space-y-2 mt-2">
                     ${q.options.map((option, i) => `
-                        <label for="${questionId}_option${i}" class="quiz-option">
+                        <label for="${questionId}_option${i}" class="quiz-option" tabindex="0" role="radio" aria-checked="false">
                             <input type="radio" name="${questionId}" id="${questionId}_option${i}" value="${option}" class="mr-2 sr-only">
                             <span class="option-text">${option}</span>
                         </label>
@@ -243,17 +261,32 @@ document.addEventListener('DOMContentLoaded', () => {
             quizContent.appendChild(questionElement);
 
             const radioLabels = questionElement.querySelectorAll('.quiz-option');
-            radioLabels.forEach(label => {
-                label.addEventListener('click', (event) => {
-                    const associatedRadio = label.querySelector('input[type="radio"]');
-                    if (associatedRadio) {
-                        associatedRadio.checked = true;
-                        userAnswers[index] = associatedRadio.value;
+            const radioInputs = questionElement.querySelectorAll('input[type="radio"]');
 
-                        questionElement.querySelectorAll('.quiz-option').forEach(optLabel => {
-                            optLabel.classList.remove('selected', 'font-semibold');
-                        });
-                        label.classList.add('selected', 'font-semibold');
+            radioLabels.forEach((label, labelIndex) => {
+                const associatedRadio = radioInputs[labelIndex]; // More direct association
+
+                const selectOption = () => {
+                    // Uncheck all radios in this group and update ARIA attributes
+                    radioInputs.forEach((radio, radioIdx) => {
+                        radio.checked = false;
+                        radioLabels[radioIdx].classList.remove('selected', 'font-semibold');
+                        radioLabels[radioIdx].setAttribute('aria-checked', 'false');
+                    });
+
+                    // Check the selected one
+                    associatedRadio.checked = true;
+                    userAnswers[index] = associatedRadio.value;
+                    label.classList.add('selected', 'font-semibold');
+                    label.setAttribute('aria-checked', 'true');
+                };
+
+                label.addEventListener('click', selectOption);
+
+                label.addEventListener('keydown', (event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault(); // Prevent space from scrolling page
+                        selectOption();
                     }
                 });
             });
@@ -321,6 +354,7 @@ document.addEventListener('DOMContentLoaded', () => {
         homePage.classList.add('hidden');
         quizPage.classList.add('hidden');
         resultPage.classList.remove('hidden');
+        window.scrollTo(0, 0); // Scroll to top when results page is shown
 
         const resultCard = resultPage.querySelector('.card');
         if (resultCard) { // Ensure card exists before trying to manipulate classList
