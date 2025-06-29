@@ -132,7 +132,8 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         "+2": {
             "Physics": ["lesson1"],
-            "Chemistry": ["lesson1", "lesson2", "lesson3", "lesson4", "lesson5", "lesson6", "lesson7"]
+            "Chemistry": ["lesson1", "lesson2", "lesson3", "lesson4", "lesson5", "lesson6", "lesson7"],
+            "Zoology": ["lesson1", "lesson2", "lesson3", "lesson4", "lesson5", "lesson6", "lesson7", "lesson8", "lesson9", "lesson10", "lesson11", "lesson12"]
         }
     };
 
@@ -141,26 +142,43 @@ document.addEventListener('DOMContentLoaded', () => {
         currentStandard = standardSelect.value;
         console.log("Current standard selected:", currentStandard);
 
-        subjectSelect.innerHTML = '<option value="">-- Select Subject --</option>';
+        // Forcefully clear and reset subjectSelect
+        subjectSelect.innerHTML = '';
+        const placeholderOption = document.createElement('option');
+        placeholderOption.value = "";
+        placeholderOption.textContent = "-- Select Subject --";
+        subjectSelect.appendChild(placeholderOption);
+
+        subjectSelect.disabled = true; // Disable initially
+        subjectSelect.style.display = ''; // Ensure it's not display:none
+
+        // Reset lessonSelect and customQuizSizeContainer as well
         lessonSelect.innerHTML = '<option value="">-- Select Lesson --</option>';
-        subjectSelect.disabled = true;
         lessonSelect.disabled = true;
-        customQuizSizeContainer.classList.add('hidden'); // Also hide this when standard changes
+        customQuizSizeContainer.classList.add('hidden');
         startQuizBtn.disabled = true;
 
-        if (currentStandard && availableData[currentStandard]) {
-            console.log("Subjects for standard '" + currentStandard + "':", Object.keys(availableData[currentStandard]));
-            Object.keys(availableData[currentStandard]).forEach(subject => {
-                console.log("Adding subject:", subject);
-                const option = document.createElement('option');
-                option.value = subject.toLowerCase();
-                option.textContent = subject;
-                subjectSelect.appendChild(option);
-            });
-            subjectSelect.disabled = false;
-            console.log("Subject select enabled.");
+        if (currentStandard && availableData[currentStandard] && typeof availableData[currentStandard] === 'object') {
+            const subjects = Object.keys(availableData[currentStandard]);
+            console.log("Subjects for standard '" + currentStandard + "':", subjects);
+
+            if (subjects.length > 0) {
+                subjects.forEach(subject => {
+                    console.log("Adding subject:", subject);
+                    const option = document.createElement('option');
+                    option.value = subject.toLowerCase();
+                    option.textContent = subject;
+                    subjectSelect.appendChild(option);
+                });
+                subjectSelect.disabled = false;
+                console.log("Subject select enabled with " + subjectSelect.options.length + " options.");
+            } else {
+                console.log("No subjects found for standard:", currentStandard);
+                // subjectSelect remains disabled with only placeholder
+            }
         } else {
-            console.log("No valid standard selected or no data for standard:", currentStandard);
+            console.log("No valid standard selected or no data/invalid data structure for standard:", currentStandard);
+            // subjectSelect remains disabled with only placeholder
         }
         checkCanStart();
     }
