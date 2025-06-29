@@ -1,0 +1,92 @@
+[
+  {
+    "question": "In which of the following , NH3 is not used?",
+    "options": ["Nessler’s reagent", "Reagent for the analysis of IV group basic radical", "Reagent for the analysis of III group basic radical", "Tollen’s reagent"],
+    "answer": "Tollen’s reagent", "image": null
+  },
+  {
+    "question": "Which is true regarding nitrogen?",
+    "options": ["least electronegative element", "has low ionisation enthalpy than oxygen", "d- orbitals available", "ability to form pπ − pπ bonds with itself"],
+    "answer": "ability to form pπ − pπ bonds with itself", "image": null
+  },
+  {
+    "question": "An element belongs to group 15 and 3 rd period of the periodic table, its electronic configuration would be",
+    "options": ["1s² 2s² 2p⁴", "1s² 2s² 2p³", "1s² 2s² 2p⁶ 3s² 3p²", "1s² 2s² 2p⁶ 3s² 3p³"],
+    "answer": "1s² 2s² 2p⁶ 3s² 3p³", "image": null
+  },
+  {
+    "question": "Solid (A) reacts with strong aqueous NaOH liberating a foul smelling gas(B) which spontaneously burn in air giving smoky rings. A and B are respectively",
+    "options": ["P₄(red) and PH₃", "P₄(white) and PH₃", "S₈ and H₂S", "P₄(white) and H₂S"],
+    "answer": "P₄(white) and PH₃", "image": null
+  },
+  {
+    "question": "On hydrolysis, PCl3 gives",
+    "options": ["H₃PO₃", "PH₃", "H₃PO₄", "POCl₃"],
+    "answer": "H₃PO₃", "image": null
+  },
+  {
+    "question": "P₄O₆ reacts with cold water to give",
+    "options": ["H₃PO₃", "H₄P₂O₇", "HPO₃", "H₃PO₄"],
+    "answer": "H₃PO₃", "image": null
+  },
+  {
+    "question": "The basicity of pyrophosphorous acid ( H4P2O5) is",
+    "options": ["4", "2", "3", "5"],
+    "answer": "2", "image": null
+  },
+  {
+    "question": "The molarity of given orthophosphoric acid solution is 2M. its normality is",
+    "options": ["6N", "4N", "2N", "none of these"],
+    "answer": "6N", "image": null
+  },
+  {
+    "question": "Assertion : bond dissociation energy of fluorine is greater than chlorine gas Reason: chlorine has more electronic repulsion than fluorine",
+    "options": ["Both assertion and reason are true and reason is the correct explanation of assertion.", "Both assertion and reason are true but reason is not the correct explanation of assertion.", "Assertion is true but reason is false.", "Both assertion and reason are false."],
+    "answer": "Assertion is true but reason is false.", "image": null
+  },
+  {
+    "question": "Among the following, which is the strongest oxidizing agent?",
+    "options": ["Cl₂", "F₂", "Br₂", "l₂"],
+    "answer": "F₂", "image": null
+  },
+  {
+    "question": "The correct order of the thermal stability of hydrogen halide is",
+    "options": ["HI > HBr > HCl > HF", "HF > HCl > HBr > HI", "HCl > HF > HBr > HI", "HI > HCl > HF > HBr"],
+    "answer": "HF > HCl > HBr > HI", "image": null
+  },
+  {
+    "question": "Which one of the following compounds is not formed?",
+    "options": ["XeOF₄", "XeO₃", "XeF₂", "NeF₂"],
+    "answer": "NeF₂", "image": null
+  },
+  {
+    "question": "Most easily liquefiable gas is",
+    "options": ["Ar", "Ne", "He", "Kr"],
+    "answer": "Kr", "image": null
+  },
+  {
+    "question": "XeF₆ on complete hydrolysis produces",
+    "options": ["XeOF₄", "XeO₂F₂", "XeO₃", "XeO₂"],
+    "answer": "XeO₃", "image": null
+  },
+  {
+    "question": "Which of the following is strongest acid among all?",
+    "options": ["HI", "HF", "HBr", "HCl"],
+    "answer": "HI", "image": null
+  },
+  {
+    "question": "Which one of the following orders is correct for the bond dissociation enthalpy of halogen molecules?",
+    "options": ["Br₂> I₂ > F₂ > Cl₂", "F₂ > Cl₂ > Br₂ > l₂", "I₂ > Br₂ > Cl₂ > F₂", "Cl₂ > Br₂ > F₂ > I₂"],
+    "answer": "Cl₂ > Br₂ > F₂ > I₂", "image": null
+  },
+  {
+    "question": "Among the following the correct order of acidity is",
+    "options": ["HClO₂ < HClO < HClO₃ < HClO₄", "HClO₄ < HClO₂ < HClO < HClO₃", "HClO₃ < HClO₄ < HClO₂ < HClO", "HClO < HClO₂ < HClO₃ < HClO₄"],
+    "answer": "HClO < HClO₂ < HClO₃ < HClO₄", "image": null
+  },
+  {
+    "question": "When copper is heated with conc HNO3 it produces",
+    "options": ["Cu(NO₃)₂ , NO and NO₂", "Cu(NO₃)₂ and N₂O", "Cu(NO₃)₂ and NO₂", "Cu(NO₃)₂ and NO"],
+    "answer": "Cu(NO₃)₂ and NO₂", "image": null
+  }
+]

@@ -1,0 +1,117 @@
+[
+  {
+    "question": "Graphite and diamond are",
+    "options": ["Covalent and molecular crystals", "ionic and covalent crystals", "both covalent crystals", "both molecular crystals"],
+    "answer": "both covalent crystals", "image": null
+  },
+  {
+    "question": "An ionic compound AxBy crystallizes in fcc type crystal structure with B ions at the centre of each face and A ion occupying corners of the cube. the correct formula of AxBy is",
+    "options": ["AB", "AB3", "A3B", "A8B6"],
+    "answer": "A3B", "image": null
+  },
+  {
+    "question": "The ratio of close packed atoms to tetrahedral hole in cubic packing is",
+    "options": ["1:1", "1:2", "2:1", "1:4"],
+    "answer": "1:2", "image": null
+  },
+  {
+    "question": "Solid CO2 is an example of",
+    "options": ["Covalent solid", "metallic solid", "molecular solid", "ionic solid"],
+    "answer": "molecular solid", "image": null
+  },
+  {
+    "question": "Assertion : monoclinic sulphur is an example of monoclinic crystal system Reason: for a monoclinic system, a≠b≠c and α = γ = 900 , β ≠ 900",
+    "options": ["Both assertion and reason are true and reason is the correct explanation of assertion.", "Both assertion and reason are true but reason is not the correct explanation of assertion.", "Assertion is true but reason is false.", "Both assertion and reason are false."],
+    "answer": "Both assertion and reason are true and reason is the correct explanation of assertion.", "image": null
+  },
+  {
+    "question": "In calcium fluoride, having the flurite structure the coordination number of Ca2+ ion and F- Ion are",
+    "options": ["4 and 2", "6 and 6", "8 and 4", "4 and 8"],
+    "answer": "8 and 4", "image": null
+  },
+  {
+    "question": "The number of unit cells in 8 gm of an element X ( atomic mass 40 ) which crystallizes in bcc pattern is",
+    "options": ["6.023 X 1023", "6.023 X 1022", "60.23 X 10", "c5o4.png"],
+    "answer": "6.023 X 1022", "image": null
+  },
+  {
+    "question": "In a solid atom M occupies ccp lattice and   of tetrahedral voids are occupied by atom N. find the formula of solid formed by M and N.",
+    "options": ["MN", "M3N", "MN3", "M3N2"],
+    "answer": "MN3", "image": null
+  },
+  {
+    "question": "The ionic radii of A+ and B− are 0.98 × 10−10 m and 1.81 × 10−10 m . the coordination number of each ion in AB is",
+    "options": ["8", "2", "6", "4"],
+    "answer": "6", "image": null
+  },
+  {
+    "question": "CsCl has bcc arrangement, its unit cell edge length is 400pm, its inter atomic distance is ",
+    "options": ["400pm", "800pm", "3 × 100pm", "c5o6.png"],
+    "answer": "400pm", "image": null
+  },
+  {
+    "question": "A solid compound XY has NaCl structure. if the radius of the cation is 100pm , the radius of the anion will be",
+    "options": ["c5q11o1.png", "c5q11o2.png", "100 × 0.414", "c5q11o3.png"],
+    "answer": "100 × 0.414", "image": null
+  },
+  {
+    "question": "The vacant space in bcc lattice unit cell is",
+    "options": ["48%", "23%", "32%", "26%"],
+    "answer": "26%", "image": null
+  },
+  {
+    "question": "The radius of an atom is 300pm, if it crystallizes in a face centered cubic lattice, the length of the edge of the unit cell is",
+    "options": ["488.5pm", "848.5pm", "884.5pm", "484.5pm"],
+    "answer": "488.5pm", "image": null
+  },
+  {
+    "question": "The fraction of total volume occupied by the atoms in a simple cubic is",
+    "options": ["c6q14o1.png", "c6q14o2.png", "c6q14o3.png", "c6q14o4.png"],
+    "answer": "c6q14o1.png", "image": null
+  },
+  {
+    "question": "The yellow colour in NaCl crystal is due to",
+    "options": ["excitation of electrons in F centers", "reflection of light from Cl- ion on the surface", "refraction of light from Na+ ion", "all of the above"],
+    "answer": "excitation of electrons in F centers", "image": null
+  },
+  {
+    "question": "If a stands for the edge length of the cubic system; sc , bcc, and fcc. Then the ratio of radii of spheres in these systems will be respectively.",
+    "options": ["c6q16o1.png", "c6q16o2.png", "c6q16o3.png", "c6q16o4.png"],
+    "answer": "c6q16o2.png", "image": null
+  },
+  {
+    "question": "If a is the length of the side of the cube, the distance between the body centered atom and one corner atom in the cube will be",
+    "options": ["c6q17o1.png", "c6q17o2.png", "c6q17o3.png", "c6q17o4.png"],
+    "answer": "c6q17o1.png", "image": null
+  },
+  {
+    "question": "Potassium has a bcc structure with nearest neighbor distance 4.52 A0 . its atomic weight is 39. its density will be",
+    "options": ["915 kg m-3", "2142 kg m-3", "452 kg m-3", "390 kg m-3"],
+    "answer": "915 kg m-3", "image": null
+  },
+  {
+    "question": "Schottky defect in a crystal is observed when",
+    "options": ["unequal number of anions and cations are missing from the lattice", "equal number of cations and anions are missing from the lattice", "an ion leaves its normal site and occupies an interstitial site", "no ion is missing from its lattice."],
+    "answer": "equal number of cations and anions are missing from the lattice", "image": null
+  },
+  {
+    "question": "The cation leaves its normal position in the crystal and moves to some interstitial position, the defect in the crystal is known as",
+    "options": ["Schottky defect", "F center", "Frenkel defect", "non-stoichiometric defect"],
+    "answer": "Frenkel defect", "image": null
+  },
+  {
+    "question": "Assertion: due to Frenkel defect, density of the crystalline solid decreases. Reason: in Frenkel defect cation and anion leaves the crystal.",
+    "options": ["Both assertion and reason are true and reason is the correct explanation of assertion.", "Both assertion and reason are true but reason is not the correct explanation of assertion.", "Assertion is true but reason is false.", "Both assertion and reason are false"],
+    "answer": "Assertion is true but reason is false.", "image": null
+  },
+  {
+    "question": "The crystal with a metal deficiency defect is",
+    "options": ["NaCl", "FeO", "ZnO", "KCl"],
+    "answer": "FeO", "image": null
+  },
+  {
+    "question": "A two dimensional solid pattern formed by two different atoms X and Y is shown below. The black and white squares represent atoms X and Y respectively. the simplest formula for the compound based on the unit cell from the pattern is",
+    "options": ["XY8", "X4Y9", "XY2", "XY4"],
+    "answer": "XY4", "image": null
+  }
+]

@@ -1,0 +1,132 @@
+[
+  {
+    "question": "Refer to the image (c5q1.png). What is the oxidation number of Co?",
+    "options": ["3", "6", "-3", "9"],
+    "answer": "-3",
+    "image": "https://raw.githubusercontent.com/ghssmazhaiyur-in/chemistry-eng/main/c5q1.png"
+  },
+  {
+    "question": "An excess of silver nitrate is added to 100ml of a 0.01M solution of pentaaquachloridochromium(III)chloride. The number of moles of AgCl precipitate would be",
+    "options": ["0.02", "0.002", "0.01", "0.2"],
+    "answer": "0.002",
+    "image": null
+  },
+  {
+    "question": "A complex has a molecular formula MSO4Cl. 6H2O .The aqueous solution of it gives white precipitate with Barium chloride solution and no precipitate is obtained when it is treated with silver nitrate solution. If the secondary valence of the metal is six, which one of the following correctly represents the complex?",
+    "options": ["c5o1.png", "c5o2.png", "c5o3.png", "c5o4.png"],
+    "answer": "c5o1.png",
+    "image": null
+  },
+  {
+    "question": "Oxidation state of Iron and the charge on the ligand NO in Fe ( H2O )5 NO SO4 are",
+    "options": ["+2 and 0 respectively", "+3 and 0 respectively", "+3 and -1 respectively", "+1 and +1 respectively"],
+    "answer": "+1 and +1 respectively",
+    "image": null
+  },
+  {
+    "question": "As per IUPAC guidelines, the name of the complex [Co(en)₂(ONO)Cl] is",
+    "options": [
+      "Chlorobisethylenediaminenitritocobalt(III) chloride",
+      "Chloridobis(ethane-1,2-diamine)nitro-Ocobaltate(III)chloride",
+      "Chloridobis(ethane-1,2-diammine)nitrito -Ocobalt(II) chloride",
+      "Chloridobis(ethane-1,2-diammine)nitrito κ -Ocobalt(III)chloride"
+    ],
+    "answer": "Chloridobis(ethane-1,2-diammine)nitrito κ -Ocobalt(III)chloride",
+    "image": null
+  },
+  {
+    "question": "IUPAC name of the complex K₃[Al(C₂O₄)₃] is",
+    "options": ["Potassiumtrioxalatoaluminium(III)", "Potassiumtrioxalatoaluminate(II)", "Potassiumtrisoxalatoaluminate(III)", "Potassiumtrioxalatoaluminate(III)"],
+    "answer": "Potassiumtrioxalatoaluminate(III)",
+    "image": null
+  },
+  {
+    "question": "A magnetic moment of 1.73BM will be shown by one among the following",
+    "options": ["TiCl₄", "5q7o1.png", "5q7o2.png", "5q7o3.png"],
+    "answer": "5q7o1.png",
+    "image": null
+  },
+  {
+    "question": "Crystal field stabilization energy for high spin d5 octahedral complex is",
+    "options": ["−0.6∆ 0", "0", "2(P −∆ 0 )", "2(P + ∆ 0 )"],
+    "answer": "0",
+    "image": null
+  },
+  {
+    "question": "In which of the following coordination entities the magnitude of Δ0 will be maximum?",
+    "options": ["5q9o1.png", "5q9o2.png", "5q9o3.png", "5q9o4.png"],
+    "answer": "5q9o1.png",
+    "image": null
+  },
+  {
+    "question": "Which one of the following will give a pair of enantiomorphs?",
+    "options": ["5q10o1.png", "5q10o2.png", "5q10o3.png", "5q10o4.png"],
+    "answer": "5q10o3.png",
+    "image": null
+  },
+  {
+    "question": "Which type of isomerism is exhibited by Pt ( NH3 )2 Cl2  ?",
+    "options": ["Coordination isomerism", "Linkage isomerism", "Optical isomerism", "Geometrical isomerism"],
+    "answer": "Geometrical isomerism",
+    "image": null
+  },
+  {
+    "question": "How many geometrical isomers are possible for Pt ( Py ) ( NH3 ) ( Br )( Cl )  ?",
+    "options": ["3", "4", "0", "15"],
+    "answer": "3",
+    "image": null
+  },
+  {
+    "question": "Which one of the following pairs represents linkage isomers?",
+    "options": ["c5q3o1.png", "c5q3o2.png", "c5q3o3.png", "both (b) and (c)"],
+    "answer": "both (b) and (c)",
+    "image": null
+  },
+  {
+    "question": "Which kind of isomerism is possible for a complex Co ( NH3 ) 4 Br2  Cl ?",
+    "options": ["geometrical and ionization", "geometrical and optical", "optical and ionization", "geometrical only"],
+    "answer": "geometrical and ionization",
+    "image": null
+  },
+  {
+    "question": "Which one of the following complexes is not expected to exhibit isomerism?",
+    "options": ["5q15o1.png", "5q15o2.png", "5q15o3.png", "5q15o4.png"],
+    "answer": "5q15o3.png",
+    "image": null
+  },
+  {
+    "question": "A complex in which the oxidation number of the metal is zero is",
+    "options": ["5q16o1.png", "5q16o2.png", "5q16o3.png", "both (b) and (c)"],
+    "answer": "both (b) and (c)",
+    "image": null
+  },
+  {
+    "question": "Formula of tris(ethane-1,2-diamine)iron(II)phosphate",
+    "options": ["5q17o1.png", "5q17o2.png", "5q17o3.png", "5q17o4.png"],
+    "answer": "5q17o2.png",
+    "image": null
+  },
+  {
+    "question": "Which of the following is paramagnetic in nature?",
+    "options": ["5q18o1.png", "5q18o2.png", "5q18o3.png", "5q18o4.png"],
+    "answer": "5q18o1.png",
+    "image": null
+  },
+  {
+    "question": "Fac-mer isomerism is shown by",
+    "options": ["5q19o1.png", "5q19o2.png", "5q19o3.png", "5q19o4.png"],
+    "answer": "5q19o2.png",
+    "image": null
+  },
+  {
+    "question": "Choose the correct statement.",
+    "options": [
+      "Square planar complexes are more stable than octahedral complexes",
+      "The spin only magnetic moment of [Cu ( Cl ) 4 ] is 1.732 BM and it has square planar structure.",
+      "Crystal field splitting energy ( ∆ 0 ) of [FeF6 ] is higher than the ( ∆ 0 ) of ]Fe ( CN )6 ",
+      "crystal field stabilization energy of [V ( H2O )6 stabilization of [Ti ( H2O ) ]6 2+ is higher than the crystal field"
+    ],
+    "answer": "Square planar complexes are more stable than octahedral complexes",
+    "image": null
+  }
+]

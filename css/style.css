@@ -219,3 +219,121 @@ label { /* General label color for dark mode if not overridden by more specific 
     /* Tailwind classes in HTML handle this mostly */
     /* font-style: italic; done in html */
 }
+
+/* General Button Base Enhancements */
+.btn-base {
+    /* Tailwind already provides 'transition duration-300', which is good. */
+    /* Adding transform for hover/active states */
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+    will-change: transform; /* Hint for browser performance */
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); /* Tailwind shadow-md */
+}
+
+.btn-base:hover:not(:disabled) {
+    transform: translateY(-2px) scale(1.02); /* Slight lift and scale */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Tailwind shadow-lg */
+    /* Specific background hover colors are still handled by Tailwind classes on each button */
+}
+
+.btn-base:active:not(:disabled) {
+    transform: translateY(0px) scale(1); /* Back to normal or slightly pressed */
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05); /* Tailwind shadow-sm or inner shadow */
+}
+
+.btn-base:focus:not(:disabled) {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+    --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+    box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+    --tw-ring-opacity: 1;
+    --tw-ring-color: rgba(59, 130, 246, var(--tw-ring-opacity)); /* Default blue-500 focus ring */
+}
+.dark .btn-base:focus:not(:disabled) {
+    --tw-ring-color: rgba(96, 165, 250, var(--tw-ring-opacity)); /* Lighter blue for dark mode focus */
+}
+
+/* Dark Mode Toggle Button Specific Hover/Focus (it's already rounded-full) */
+#dark-mode-toggle.btn-base:hover:not(:disabled) {
+    /* Tailwind classes like hover:bg-gray-300 dark:hover:bg-gray-600 already handle this. */
+    /* If more distinction is needed, it can be added here */
+    transform: scale(1.1); /* Just scale for icon button */
+}
+#dark-mode-toggle.btn-base:active:not(:disabled) {
+    transform: scale(1);
+}
+#dark-mode-toggle.btn-base:focus:not(:disabled) {
+     /* Use a ring that fits the circular button */
+    --tw-ring-offset-width: 0px; /* No offset for circular tight ring */
+    --tw-ring-color: rgba(96, 165, 250, 0.7); /* Lighter blue, slightly transparent */
+}
+
+/* Quiz Option Enhancements */
+.quiz-option {
+    /* display: block; (already set) */
+    /* padding: 0.75rem 1rem; (already set) */
+    /* margin-bottom: 0.5rem; (already set) */
+    /* border: 1px solid #e2e8f0; (already set) */
+    /* border-radius: 0.375rem; (already set) */
+    /* cursor: pointer; (already set) */
+    /* transition: background-color 0.2s, border-color 0.2s; (original) */
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    position: relative; /* For pseudo-element positioning */
+}
+
+.quiz-option:hover {
+    /* background-color: #f7fafc; (original hover) */
+    border-color: #60a5fa; /* Tailwind blue-400 for hover border */
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+.dark .quiz-option:hover {
+    border-color: #3b82f6; /* Tailwind blue-500 for dark hover border */
+}
+
+.quiz-option.selected {
+    /* background-color: #ebf8ff; (original selected bg) */
+    /* border-color: #90cdf4; (original selected border) */
+    /* color: #2b6cb0; (original selected text) */
+    background-color: #EBF8FF; /* Tailwind blue-100 */
+    border-color: #63B3ED; /* Tailwind blue-400 */
+    color: #2C5282; /* Tailwind blue-800 */
+    font-weight: 600; /* semibold */
+    box-shadow: 0 0 0 2px #63B3ED; /* Ring effect for selected */
+    padding-right: 2.5rem; /* Make space for checkmark icon */
+}
+
+.dark .quiz-option.selected {
+    background-color: #2A4365; /* Tailwind blue-800 (a bit darker than previous blue-800 for variety) */
+    border-color: #63B3ED; /* Tailwind blue-400 */
+    color: #EBF8FF; /* Tailwind blue-100 */
+    box-shadow: 0 0 0 2px #63B3ED;
+}
+
+/* Checkmark Icon for selected option */
+.quiz-option.selected::after {
+    content: '✓';
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.25rem; /* text-xl */
+    font-weight: bold;
+    color: #38A169; /* Tailwind green-600 */
+}
+.dark .quiz-option.selected::after {
+    color: #68D391; /* Tailwind green-400 */
+}
+
+/* Hide radio button, but keep it accessible */
+.quiz-option input[type="radio"].sr-only { /* Ensure this class is on the input in HTML */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}

@@ -1,0 +1,157 @@
+[
+  {
+    "question": "For a first order reaction A → −1 the rate constant is x min . If the initial concentration of A is 0.01M , the concentration of A after one hour is given by the expression.",
+    "options": ["0.01 e−x", "1 × 10−2 (1 −e−60 x )", "(1 × 10 ) e", "none of these"],
+    "answer": "0.01 e−x",
+    "image": null
+  },
+  {
+    "question": "A zero order reaction X → Product , with an initial concentration 0.02M has a half life of 10 min. if one starts with concentration 0.04M, then the half life is",
+    "options": ["10 s", "5 min", "20 min", "cannot be predicted using the given information"],
+    "answer": "20 min",
+    "image": null
+  },
+  {
+    "question": "Among the following graphs showing variation of rate constant with temperature (T) for a reaction, the one that exhibits Arrhenius behavior over the entire temperature range is",
+    "options": ["c7o1.png", "c7o2.png", "c7o3.png", "both (b) and (c)"],
+    "answer": "c7o2.png",
+    "image": null
+  },
+  {
+    "question": "For a first order reaction A → Product, with initial concentration x mol L−1 , has a half life period of 2.5 hours . For the same reaction with initial concentration (x/2) mol L-1 the half life is",
+    "options": ["( 2.5 × 2 ) hours", "(2.5/2) hours", "2.5 hours", "Without knowing the rate constant, t1/2 cannot be determined from the given data"],
+    "answer": "2.5 hours",
+    "image": null
+  },
+  {
+    "question": "Refer to the image (c7q5.png). For the reaction 2A + B → C, the rate law is Rate = k[A][B]². The order of the reaction is:",
+    "options": ["k1 = k 2 = k 3", "k1 = 3 k 2 = 2 k 3", "1.5 k1 = 3 k 2 = k 3", "2k1 = k 2 = 3 k 3"],
+    "answer": "k1 = 3 k 2 = 2 k 3",
+    "image": "https://raw.githubusercontent.com/ghssmazhaiyur-in/chemistry-eng/main/c7q5.png"
+  },
+  {
+    "question": "The decomposition of phosphine (PH3) on tungsten at low pressure is a first order reaction. It is because the",
+    "options": ["rate is proportional to the surface coverage", "rate is inversely proportional to the surface coverage", "rate is independent of the surface coverage", "rate of decomposition is slow"],
+    "answer": "rate is independent of the surface coverage",
+    "image": null
+  },
+  {
+    "question": "For a reaction Rate = k [acetone ]^3/2 then unit of rate constant and rate of reaction respectively is",
+    "options": ["( mol L−1s −1 ) , mol^2 L^2 s", "mol^2 L^2 s −1 , ( mol L−1s −1 )", "mol L^(-1/2) s-1, (mol L-1 s-1)", "( mol L s −1 ) , mol^2 L s)"],
+    "answer": "mol L^(-1/2) s-1, (mol L-1 s-1)",
+    "image": null
+  },
+  {
+    "question": "The addition of a catalyst during a chemical reaction alters which of the following quantities?",
+    "options": ["Enthalpy", "Activation Energy", "Entropy", "Internal energy"],
+    "answer": "Activation Energy",
+    "image": null
+  },
+  {
+    "question": "Refer to the image (c7q9.png). Which of the following is correct for a zero order reaction?",
+    "options": ["(ii) only", "(ii) and (iv)", "(ii) and (v)", "(i), (ii) and (v)"],
+    "answer": "(ii) and (v)",
+    "image": "https://raw.githubusercontent.com/ghssmazhaiyur-in/chemistry-eng/main/c7q9.png"
+  },
+  {
+    "question": "In a reversible reaction, the enthalpy change and the activation energy in the forward direction are respectively −x kJ mol −1 and y kJ mol −1 . Therefore , the energy of activation in the backward direction is",
+    "options": ["( y −x ) kJ mol", "( x + y ) J mol", "( x − y ) kJ mol", "( x + y ) × 103 J mol"],
+    "answer": "( y −x ) kJ mol",
+    "image": null
+  },
+  {
+    "question": "What is the activation energy for areaction if its rate doubles when the temperature is raised from 200K to 400K? (R = 8.314 JK-1mol-1)",
+    "options": ["234.65 kJ mol", "434.65 kJ mol", "2.305 kJ mol", "334.65 J mol"],
+    "answer": "2.305 kJ mol",
+    "image": null
+  },
+  {
+    "question": "Refer to the image (c7q12.png). The half life of a first order reaction is 30 minutes and the initial concentration is 0.1M. The concentration of A after one hour is:",
+    "options": ["0.125M", "0.215M", "0.25 × 2.303M", "0.025M"],
+    "answer": "0.025M",
+    "image": "https://raw.githubusercontent.com/ghssmazhaiyur-in/chemistry-eng/main/c7q12.png"
+  },
+  {
+    "question": "For a first order reaction, the rate constant is 6.909 min-1.the time taken for 75% conversion in minutes is",
+    "options": ["(3/2)log2", "(2/3)log2", "(3/2)log(3/4)", "(2/3)log(4/3)"],
+    "answer": "(3/2)log2",
+    "image": null
+  },
+  {
+    "question": "In a first order reaction x → Product, k is the rate constant and the initial concentration of the reactant x is 0.1M, then, the half life is",
+    "options": ["(log2/k)", "(0.693/(0.1)k)", "(ln2/k)", "none of these"],
+    "answer": "(ln2/k)",
+    "image": null
+  },
+  {
+    "question": "Refer to the image (c7q15.png). From the given data, the rate law for the reaction A + B → Products is:",
+    "options": ["rate = k [A ] [B ]", "rate = k [A ][B ]", "rate = k [A ][B ]", "rate = k [A ]^2 [B ]^2"],
+    "answer": "rate = k [A ] [B ]",
+    "image": "https://raw.githubusercontent.com/ghssmazhaiyur-in/chemistry-eng/main/c7q15.png"
+  },
+  {
+    "question": "Refer to the image (c7q16.png). Assertion: The rate of reaction is the rate of change of concentration of a reactant or a product. Reason: Rate of reaction remains constant during the course of reaction.",
+    "options": ["Both assertion and reason are true and reason is the correct explanation of assertion.", "Both assertion and reason are true but reason is not the correct explanation of assertion.", "Assertion is true but reason is false.", "Both assertion and reason are false."],
+    "answer": "Assertion is true but reason is false.",
+    "image": "https://raw.githubusercontent.com/ghssmazhaiyur-in/chemistry-eng/main/c7q16.png"
+  },
+  {
+    "question": "The rate constant of a reaction is 5.8 × 10⁻² M s⁻¹. The order of the reaction is",
+    "options": ["first order", "zero order", "second order", "third order"],
+    "answer": "zero order",
+    "image": null
+  },
+  {
+    "question": "Refer to the image (c7q18.png). For a reaction, X(g) → Y(g) + Z(g), the half life period is 10 min. In what period of time would the concentration of X be reduced to 10% of original concentration?",
+    "options": ["c7q18o1.png", "c7q18o2.png", "c7q18o3.png", "None of these"],
+    "answer": "None of these",
+    "image": "https://raw.githubusercontent.com/ghssmazhaiyur-in/chemistry-eng/main/c7q18.png"
+  },
+  {
+    "question": "During the decomposition of H2O2 to give dioxygen, 48 g O2 is formed per minute at certain point of time. The rate of formation of water at this point is",
+    "options": ["0.75 mol min", "1.5 mol min", "2.25 mol min", "3.0 mol min"],
+    "answer": "1.5 mol min",
+    "image": null
+  },
+  {
+    "question": "If the initial concentration of the reactant is doubled, the time for half reaction is also doubled. Then the order of the reaction is",
+    "options": ["zero", "one", "fraction", "none"],
+    "answer": "zero",
+    "image": null
+  },
+  {
+    "question": "In a homogeneous reaction A → B + C + D , the initial pressure was P0 and after time t it was P. expression for rate constant in terms of P0 , P and t will be",
+    "options": ["q21o1.png", "q21o2.png", "q21o3.png", "q21o4.png"],
+    "answer": "q21o1.png",
+    "image": null
+  },
+  {
+    "question": "Refer to the image (q22.png). If 75% of a first order reaction was completed in 60 minutes, 50% of the same reaction under the same conditions would be completed in",
+    "options": ["20 minutes", "30 minutes", "35 minutes", "75 minutes"],
+    "answer": "30 minutes",
+    "image": "https://raw.githubusercontent.com/ghssmazhaiyur-in/chemistry-eng/main/q22.png"
+  },
+  {
+    "question": "The half life period of a radioactive element is 140 days. After 560 days , 1 g of element will be reduced to",
+    "options": ["(1/2) g", "(1/4) g", "(1/8) g", "(1/16) g"],
+    "answer": "(1/16) g",
+    "image": null
+  },
+  {
+    "question": "The correct difference between first and second order reactions is that",
+    "options": [
+      "A first order reaction can be catalysed; a second order reaction cannot be catalysed.",
+      "The half life of a first order reaction does not depend on [A0]; the half life of a second order reaction does depend on [A0].",
+      "The rate of a first order reaction does not depend on reactant concentrations; the rate of a second order reaction does depend on reactant concentrations.",
+      "The rate of a first order reaction does depend on reactant concentrations; the rate of a second order reaction does not depend on reactant concentrations"
+    ],
+    "answer": "The half life of a first order reaction does not depend on [A0]; the half life of a second order reaction does depend on [A0].",
+    "image": null
+  },
+  {
+    "question": "After 2 hours, a radioactive substance becomes (1/16)th of original amount. Then its half life is:",
+    "options": ["60 minutes", "120 minutes", "30 minutes", "15 minutes"],
+    "answer": "30 minutes",
+    "image": null
+  }
+]

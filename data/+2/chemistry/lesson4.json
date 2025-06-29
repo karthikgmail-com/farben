@@ -1,0 +1,146 @@
+[
+  {
+    "question": "Sc( Z=21) is a transition element but Zinc (z=30) is not because",
+    "options": [
+      "both Sc³⁺ and Zn²⁺ ions are colourless and form white compounds.",
+      "in case of Sc, 3d orbital are partially filled but in Zn these are completely filled",
+      "last electron as assumed to be added to 4s level in case of zinc",
+      "both Sc and Zn do not exhibit variable oxidation states"
+    ],
+    "answer": "in case of Sc, 3d orbital are partially filled but in Zn these are completely filled",
+    "image": null
+  },
+  {
+    "question": "Which of the following d block element has half filled penultimate d sub shell as well as half filled valence sub shell?",
+    "options": ["Cr", "Pd", "Pt", "none of these"],
+    "answer": "Cr",
+    "image": null
+  },
+  {
+    "question": "Among the transition metals of 3d series, the one that has highest negative (M²⁺/M) standard electrode potential is",
+    "options": ["Ti", "Cu", "Mn", "Zn"],
+    "answer": "Cu",
+    "image": null
+  },
+  {
+    "question": "Which one of the following ions has the same number of unpaired electrons as present in V3+?",
+    "options": ["Ti³⁺", "Fe³⁺", "Ni²⁺", "Cr³⁺"],
+    "answer": "Cr³⁺",
+    "image": null
+  },
+  {
+    "question": "The magnetic moment of Mn²⁺ ion is",
+    "options": ["5.92BM", "2.80BM", "8.95BM", "3.90BM"],
+    "answer": "5.92BM",
+    "image": null
+  },
+  {
+    "question": "The catalytic behaviour of transition metals and their compounds is ascribed mainly due to",
+    "options": [
+      "their magnetic behaviour",
+      "their unfilled d orbitals",
+      "their ability to adopt variable oxidation states",
+      "their chemical reactivity"
+    ],
+    "answer": "their ability to adopt variable oxidation states",
+    "image": null
+  },
+  {
+    "question": "The correct order of increasing oxidizing power in the series",
+    "options": ["VO₂⁺ < Cr₂O₇²⁻ < MnO₄⁻", "Cr₂O₇²⁻ < VO₂⁺ < MnO₄⁻", "Cr₂O₇²⁻ < MnO₄⁻ < VOv₂⁺", "MnO₄⁻ < Cr₂O₇²⁻ < VO₂⁺"],
+    "answer": "VO₂⁺ < Cr₂O₇²⁻ < MnO₄⁻",
+    "image": null
+  },
+  {
+    "question": "In acid medium, potassium permanganate oxidizes oxalic acid to",
+    "options": ["oxalate", "Carbon dioxide", "acetate", "acetic acid"],
+    "answer": "Carbon dioxide",
+    "image": null
+  },
+  {
+    "question": "Which of the following statements is not true?",
+    "options": [
+      "on passing H₂S, through acidified K₂Cr₂O₇ solution, a milky colour is observed.",
+      "Na₂Cr2O₇ is preferred over K₂Cr₂O₇ in volumetric analysis",
+      "K₂Cr₂O₇ solution in acidic medium is orange in colour",
+      "K₂Cr₂O₇ solution becomes yellow on increasing the PH beyond 7"
+    ],
+    "answer": "Na₂Cr2O₇ is preferred over K₂Cr₂O₇ in volumetric analysis",
+    "image": null
+  },
+  {
+    "question": "Permanganate ion changes to ________ in acidic medium",
+    "options": ["MnO₄²⁻", "Mn²⁺", "Mn³⁺", "MnO₂"],
+    "answer": "Mn²⁺",
+    "image": null
+  },
+  {
+    "question": "How many moles of I2 are liberated when 1 mole of potassium dichromate react with potassium iodide?",
+    "options": ["1", "2", "3", "4"],
+    "answer": "3",
+    "image": null
+  },
+  {
+    "question": "The number of moles of acidified KMnO4 required to oxidize 1 mole of ferrous oxalate(FeC2O4) is",
+    "options": ["5", "3", "0.6", "1.5"],
+    "answer": "1.5",
+    "image": null
+  },
+  {
+    "question": "Which one of the following statements related to lanthanons is incorrect?",
+    "options": [
+      "Europium shows +2 oxidation state.",
+      "The basicity decreases as the ionic radius decreases from Pr to Lu.",
+      "All the lanthanons are much more reactive than aluminium.",
+      "Ce4+ solutions are widely used as oxidising agents in volumetric analysis."
+    ],
+    "answer": "All the lanthanons are much more reactive than aluminium.",
+    "image": null
+  },
+  {
+    "question": "Which of the following lanthanoid ion is diamagnetic?",
+    "options": ["Eu²⁺", "Yb²⁺", "Ce²⁺", "Sm²⁺"],
+    "answer": "Yb²⁺",
+    "image": null
+  },
+  {
+    "question": "Which of the following oxidation state is most common among the lanthanoids?",
+    "options": ["+4", "+2", "+5", "+3"],
+    "answer": "+3",
+    "image": null
+  },
+  {
+    "question": "Assertion : Ce4+ is used as an oxidizing agent in volumetric analysis. Reason: Ce4+ has the tendency of attaining +3 oxidation state.",
+    "options": [
+      "Both assertion and reason are true and reason is the correct explanation of assertion.",
+      "Both assertion and reason are true but reason is not the correct explanation of assertion.",
+      "Assertion is true but reason is false.",
+      "Both assertion and reason are false."
+    ],
+    "answer": "Both assertion and reason are true and reason is the correct explanation of assertion.",
+    "image": null
+  },
+  {
+    "question": "The most common oxidation state of actinoids is",
+    "options": ["+2", "+3", "+4", "+6"],
+    "answer": "+3",
+    "image": null
+  },
+  {
+    "question": "The actinoid elements which show the highest oxidation state of +7 are",
+    "options": ["Np, Pu ,Am", "U, Fm, Th", "U, Th, Md", "Es, No, Lr"],
+    "answer": "Np, Pu ,Am",
+    "image": null
+  },
+  {
+    "question": "Which one of the following is not correct?",
+    "options": [
+      "La(OH)₃ is less basic than Lu(OH)₃",
+      "In lanthanoid series ionic radius of Ln₃+ ions decreases",
+      "La is actually an element of transition metal series rather than lanthanoid series",
+      "Atomic radii of Zr and Hf are same because of lanthanoid contraction"
+    ],
+    "answer": "La(OH)₃ is less basic than Lu(OH)₃",
+    "image": null
+  }
+]
