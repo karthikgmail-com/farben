@@ -1,0 +1,115 @@
+[
+  {
+    "question": "An aqueous solution of borax is",
+    "options": ["neutral", "acidic", "basic", "amphoteric"],
+    "answer": "basic",
+    "image": null
+  },
+  {
+    "question": "Boric acid is an acid because its molecule",
+    "options": [
+      "contains replaceable H+ ion",
+      "gives up a proton",
+      "combines with proton to form water molecule",
+      "accepts OH- from water ,releasing proton."
+    ],
+    "answer": "accepts OH- from water ,releasing proton.",
+    "image": null
+  },
+  {
+    "question": "Which among the following is not a borane?",
+    "options": ["B₂H₆", "B₃H₆", "B₄H₁₀", "none of these"],
+    "answer": "B₃H₆",
+    "image": null
+  },
+  {
+    "question": "Which of the following metals has the largest abundance in the earth’s crust?",
+    "options": ["Aluminium", "Calcium", "Magnesium", "Sodium"],
+    "answer": "Aluminium",
+    "image": null
+  },
+  {
+    "question": "In diborane, the number of electrons that accounts for banana bonds is",
+    "options": ["six", "two", "four", "three"],
+    "answer": "four",
+    "image": null
+  },
+  {
+    "question": "The element that does not show catenation among the following p-block elements is",
+    "options": ["Carbon", "silicon", "Lead", "germanium"],
+    "answer": "Lead",
+    "image": null
+  },
+  {
+    "question": "Carbon atoms in fullerene with formula C₆₀ have",
+    "options": ["sp³ hybridised", "sp hybridised", "sp² hybridised", "partially sp² and partially sp³ hybridised"],
+    "answer": "sp² hybridised",
+    "image": null
+  },
+  {
+    "question": "Oxidation state of carbon in its hydrides",
+    "options": ["+4", "-4", "+3", "+2"],
+    "answer": "+4",
+    "image": null
+  },
+  {
+    "question": "The basic structural unit of silicates is",
+    "options": ["(SiO₃)²⁻", "(SiO₃)²⁻", "(SiO)⁻", "(SiO₄)⁴⁻"],
+    "answer": "(SiO₄)⁴⁻",
+    "image": null
+  },
+  {
+    "question": "The repeating unit in silicone is",
+    "options": ["SiO₂", "l1c1.png", "l2o2.png", "l2o3.png"],
+    "answer": "l1c1.png",
+    "image": null
+  },
+  {
+    "question": "Which of these is not a monomer for a high molecular mass silicone polymer?",
+    "options": ["Me₃SiCl", "PhSiCl₃", "MeSiCl₃", "Me₂SiCl₂"],
+    "answer": "Me₃SiCl",
+    "image": null
+  },
+  {
+    "question": "Which of the following is not sp² hybridised?",
+    "options": ["Graphite", "graphene", "Fullerene", "dry ice"],
+    "answer": "dry ice",
+    "image": null
+  },
+  {
+    "question": "The geometry at which carbon atom in diamond are bonded to each other is",
+    "options": ["Tetrahedral", "hexagonal", "Octahedral", "none of these"],
+    "answer": "Tetrahedral",
+    "image": null
+  },
+  {
+    "question": "Which of the following statements is not correct?",
+    "options": ["Beryl is a cyclic silicate", "Mg₂SiO₄ is an orthosilicate", "SiO₄⁴⁻ is the basic structural unit of silicates", "Feldspar is not aluminosilicate"],
+    "answer": "Feldspar is not aluminosilicate",
+    "image": null
+  },
+  {
+    "question": "Refer to the image (l2q1.png). Match the following.",
+    "options": ["2 1 4 3", "1 2 4 3", "1 2 4 3", "None of these"],
+    "answer": "2 1 4 3",
+    "image": "https://raw.githubusercontent.com/ghssmazhaiyur-in/chemistry-eng/main/l2q1.png"
+  },
+  {
+    "question": "Duralumin is an alloy of",
+    "options": ["Cu,Mn", "Cu,Al,Mg", "Al,Mn", "Al,Cu,Mn,Mg"],
+    "answer": "Al,Cu,Mn,Mg",
+    "image": null
+  },
+  {
+    "question": "The compound that is used in nuclear reactors as protective shields and control rods is",
+    "options": ["Metal borides", "metal oxides", "Metal carbonates", "metal carbide"],
+    "answer": "Metal borides",
+    "image": null
+  },
+  {
+    "question": "The stability of +1 oxidation state increases in the sequence",
+    "options": ["Al < Ga < In < Tl", "Tl < In < Ga < Al", "In < Tl < Ga < Al", "Ga< In < Al < Tl"],
+    "answer": "Al < Ga < In < Tl",
+    "image": null
+  }
+]

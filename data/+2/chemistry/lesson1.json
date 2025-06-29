@@ -1,14 +1,166 @@
 [
   {
-    "question": "What is the pH of a neutral solution?",
-    "options": ["0", "7", "14", "1"],
-    "answer": "7",
+    "question": "Bauxite has the composition",
+    "options": ["Al₂O₃", "Al₂O₃.nH₂O", "Fe₂O₃.2H₂O", "None of these"],
+    "answer": "Al₂O₃",
     "image": null
   },
   {
-    "question": "Which gas is most abundant in Earth's atmosphere?",
-    "options": ["Oxygen", "Hydrogen", "Carbon Dioxide", "Nitrogen"],
-    "answer": "Nitrogen",
+    "question": "Roasting of sulphide ore gives the gas (A).(A) is a colourless gas. Aqueous solution of (A is acidic. The gas (A) is",
+    "options": ["CO₂", "SO₃", "SO₂", "H₂S"],
+    "answer": "SO₂",
+    "image": null
+  },
+  {
+    "question": "Which one of the following reaction represents calcinations?",
+    "options": ["2Zn+O₂→2ZnO", "2ZnS + 3O₂→2ZnO + 2SO₂", "MgCO₃→MgO + CO₂", "Both (a) and (c)"],
+    "answer": "MgCO₃→MgO + CO₂",
+    "image": null
+  },
+  {
+    "question": "The metal oxide which cannot be reduced to metal by carbon is",
+    "options": ["PbO", "Al₂O₃", "ZnO", "FeO"],
+    "answer": "Al₂O₃",
+    "image": null
+  },
+  {
+    "question": "Which of the metal is extracted by Hall-Heroult process?",
+    "options": ["Al", "Ni", "Cu", "Zn"],
+    "answer": "Al",
+    "image": null
+  },
+  {
+    "question": "Which of the following statements, about the advantage of roasting of sulphide ore before reduction is not true?",
+    "options": [
+      "Δ G f 0 of sulphide is greater than those for CS2 and H2S",
+      "Δ Gr 0 is negative for roasting of sulphide ore to oxide",
+      "Roasting of the sulphide to its oxide is thermodynamically feasible.",
+      "Carbon and hydrogen are suitable reducing agents for metal sulphides."
+    ],
+    "answer": "Carbon and hydrogen are suitable reducing agents for metal sulphides.",
+    "image": null
+  },
+  {
+    "question": "Refer to the image (l1o1.png).",
+    "options": ["(a)(i)(ii)(iii)(iv)", "(b)(iii)(iv)(v)(i)", "(c)(iv)(ii)(iii)(i)", "(d)(ii)(iii)(i)(v)"],
+    "answer": "(c)(iv)(ii)(iii)(i)",
+    "image": "https://raw.githubusercontent.com/ghssmazhaiyur-in/chemistry-eng/main/l1o1.png"
+  },
+  {
+    "question": "Wolframite ore is separated from tinstone by the process of",
+    "options": ["Smelting", "Calcination", "Roasting", "Electromagnetic separation"],
+    "answer": "Electromagnetic separation",
+    "image": null
+  },
+  {
+    "question": "Which one of the following is not feasible",
+    "options": ["Zn(s) + Cu²⁺ → Cu(s) + Zn²⁺(aq)", "Cu(s) + Zn²⁺ → Zn(s) + Cu²⁺(aq)", "Cu(s) + 2Ag⁺ → 2Ag(s) + Cu²⁺(aq)", "Fe(s) + Cu²⁺ → Cu(s) + Fe²⁺(aq)"],
+    "answer": "Cu(s) + Zn²⁺ → Zn(s) + Cu²⁺(aq)",
+    "image": null
+  },
+  {
+    "question": "Electrochemical process is used to extract",
+    "options": ["Iron", "Lead", "Sodium", "silver"],
+    "answer": "Sodium",
+    "image": null
+  },
+  {
+    "question": "Flux is a substance which is used to convert",
+    "options": ["Mineral into silicate", "Infusible impurities to soluble impurities", "Soluble impurities to infusible impurities", "All of these"],
+    "answer": "Infusible impurities to soluble impurities",
+    "image": null
+  },
+  {
+    "question": "Which one of the following ores is best concentrated by froth – floatation method?",
+    "options": ["Magnetite", "Haematite", "Galena", "Cassiterite"],
+    "answer": "Galena",
+    "image": null
+  },
+  {
+    "question": "In the extraction of aluminium from alumina by electrolysis, cryolite is added to",
+    "options": ["Lower the melting point of alumina", "Remove impurities from alumina", "Decrease the electrical conductivity", "Increase the rate of reduction"],
+    "answer": "Lower the melting point of alumina",
+    "image": null
+  },
+  {
+    "question": "Zinc is obtained from ZnO by",
+    "options": ["Carbon reduction", "Reduction using silver", "Electrochemical process", "Acid leaching"],
+    "answer": "Carbon reduction",
+    "image": null
+  },
+  {
+    "question": "Extraction of gold and silver involves leaching with cyanide ion. silver is later recovered by",
+    "options": ["Distillation", "Zone refining", "Displacement with zinc", "liquation"],
+    "answer": "Displacement with zinc",
+    "image": null
+  },
+  {
+    "question": "Considering Ellingham diagram, which of the following metals can be used to reduce alumina?",
+    "options": ["Fe", "Cu", "Mg", "Zn"],
+    "answer": "Mg",
+    "image": null
+  },
+  {
+    "question": "The following set of reactions are used in refining Zirconium",
+    "options": ["Liquation", "Van Arkel process", "Zone refining", "Mond’s process"],
+    "answer": "Van Arkel process",
+    "image": null
+  },
+  {
+    "question": "Which of the following is used for concentrating ore in metallurgy?",
+    "options": ["Leaching", "Roasting", "Froth floatation", "Both (a) and (c)"],
+    "answer": "Both (a) and (c)",
+    "image": null
+  },
+  {
+    "question": "The incorrect statement among the following is",
+    "options": [
+      "Nickel is refined by Mond’s process",
+      "Titanium is refined by Van Arkel’s process",
+      "Zinc blende is concentrated by froth floatation",
+      "In the metallurgy of gold, the metal is leached with dilute sodium chloride solution"
+    ],
+    "answer": "In the metallurgy of gold, the metal is leached with dilute sodium chloride solution",
+    "image": null
+  },
+  {
+    "question": "In the electrolytic refining of copper, which one of the following is used as anode?",
+    "options": ["Pure copper", "Impure copper", "Carbon rod", "Platinum electrode"],
+    "answer": "Impure copper",
+    "image": null
+  },
+  {
+    "question": "Which of the following plot gives Ellingham diagram",
+    "options": ["Δ S Vs T", "Δ G⁰ Vs T", "Δ G⁰ Vs T/2", "Δ G Vs T²"],
+    "answer": "Δ G⁰ Vs T",
+    "image": null
+  },
+  {
+    "question": "In the Ellingham diagram, for the formation of carbon monoxide",
+    "options": [
+      "(∆S⁰/∆T)is negative",
+      "(∆G⁰/∆T)is positive",
+      "(∆G⁰/∆T)is negative",
+      "initially (∆T/∆G⁰) is positive, after 7000C ,(∆G⁰/∆T) is negative"
+    ],
+    "answer": "(∆G⁰/∆T)is negative",
+    "image": null
+  },
+  {
+    "question": "Which of the following reduction is not thermodynamically feasible?",
+    "options": ["Cr₂O₃ + 2Al → Al₂O₃ + 2Cr", "Al₂O₃ + 2Cr → Cr₂O₃ + 2Al", "3TiO₂+ 4Al → 2 Al₂O₃ + 3Ti", "none of these"],
+    "answer": "Al₂O₃ + 2Cr → Cr₂O₃ + 2Al",
+    "image": null
+  },
+  {
+    "question": "Which of the following is not true with respect to Ellingham diagram?",
+    "options": [
+      "Free energy changes follow a straight line. Deviation occurs when there is a phase change.",
+      "The graph for the formation of CO2 is a straight line almost parallel to free energy axis.",
+      "Negative slope of CO shows that it becomes more stable with increase in temperature.",
+      "Positive slope of metal oxides shows that their stabilities decrease with increase in temperature."
+    ],
+    "answer": "The graph for the formation of CO2 is a straight line almost parallel to free energy axis.",
     "image": null
   }
 ]

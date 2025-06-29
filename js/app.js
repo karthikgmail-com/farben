@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         "+2": {
             "Physics": ["lesson1"],
-            "Chemistry": ["lesson1"]
+            "Chemistry": ["lesson1", "lesson2"] // Added lesson2
         }
     };
 
