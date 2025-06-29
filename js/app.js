@@ -137,21 +137,30 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     function updateSubjectOptions() {
+        console.log("updateSubjectOptions called");
         currentStandard = standardSelect.value;
+        console.log("Current standard selected:", currentStandard);
+
         subjectSelect.innerHTML = '<option value="">-- Select Subject --</option>';
         lessonSelect.innerHTML = '<option value="">-- Select Lesson --</option>';
         subjectSelect.disabled = true;
         lessonSelect.disabled = true;
+        customQuizSizeContainer.classList.add('hidden'); // Also hide this when standard changes
         startQuizBtn.disabled = true;
 
         if (currentStandard && availableData[currentStandard]) {
+            console.log("Subjects for standard '" + currentStandard + "':", Object.keys(availableData[currentStandard]));
             Object.keys(availableData[currentStandard]).forEach(subject => {
+                console.log("Adding subject:", subject);
                 const option = document.createElement('option');
                 option.value = subject.toLowerCase();
                 option.textContent = subject;
                 subjectSelect.appendChild(option);
             });
             subjectSelect.disabled = false;
+            console.log("Subject select enabled.");
+        } else {
+            console.log("No valid standard selected or no data for standard:", currentStandard);
         }
         checkCanStart();
     }
