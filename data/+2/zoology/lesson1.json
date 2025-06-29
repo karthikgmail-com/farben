@@ -1,0 +1,32 @@
+[
+  {
+    "question": "In which type of parthenogenesis are only males produced?",
+    "options": ["Arrhenotoky", "Thelytoky", "Amphitoky", "Both a and b"],
+    "answer": "Arrhenotoky",
+    "image": null
+  },
+  {
+    "question": "The mode of sexual reproduction in bacteria is by",
+    "options": ["Formation of gametes", "Endospore formation", "Conjugation", "Zoospore formation"],
+    "answer": "Conjugation",
+    "image": null
+  },
+  {
+    "question": " which mode of reproduction varIniations are seen?",
+    "options": ["Asexual", "Parthenogenesis", "Sexual", "Both a and b"],
+    "answer": "Both a and b",
+    "image": null
+  },
+  {
+    "question": "Assertion and reasoning questions: \nI. Assertion: In bee society, all the members are diploid except drones. \nReason: Drones are produced by parthenogenesis.",
+    "options": ["a", "b", "c", "d"],
+    "answer": "a",
+    "image": null
+  },
+  {
+    "question": "II. Assertion: Offsprings produced by asexual reproduction are genetically identical to the parent. \nReason: Asexual reproduction involves only mitosis and no meiosis.",
+    "options": ["a", "b", "c", "d"],
+    "answer": "a",
+    "image": null
+  }
+]

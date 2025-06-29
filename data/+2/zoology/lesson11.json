@@ -1,0 +1,68 @@
+[
+  {
+    "question": "All populations in a given physical area are defined as",
+    "options": ["Biome", "Ecosystem", "Territory", "Biotic factors"],
+    "answer": "Ecosystem",
+    "image": null
+  },
+  {
+    "question": "Organisms which can survive a wide range of temperature are called",
+    "options": ["Ectotherms", "Eurytherms", "Endotherms", "Stenotherms"],
+    "answer": "Eurytherms",
+    "image": null
+  },
+  {
+    "question": "The interaction in nature, where one gets benefit on the expense of other is...",
+    "options": ["Predation", "Mutualism", "Amensalism", "Commensalism"],
+    "answer": "Predation",
+    "image": null
+  },
+  {
+    "question": "Predation and parasitism are which type of interactions?",
+    "options": ["(+,+)", "(+, O)", "(--, --)", "(+, --)"],
+    "answer": "(+, --)",
+    "image": null
+  },
+  {
+    "question": "Competition between species leads to",
+    "options": ["Extinction", "Mutation", "Amensalism", "Symbiosis"],
+    "answer": "Extinction",
+    "image": null
+  },
+  {
+    "question": "Which of the following is an r-species",
+    "options": ["Human", "Insects", "Rhinoceros", "Whale"],
+    "answer": "Insects",
+    "image": null
+  },
+  {
+    "question": "Match the following and choose the correct combination from the options given below. \nColumn I \tColumn II\nA. Mutalism \t1. Lion and deer\nB. Commensalism \t2. Round worm and man\nC. Parasitism \t3. Birds compete with squirrels for nuts\nD. Competition \t4. Sea anemone on hermit crab\nE. Predation \t5. Barnacles attached to Whales",
+    "options": ["A- 4, B-5, C-2, D –3, E-1", "A- 3, B-1, C-4, D – 2, E-5", "A- 2, B-3, C-1, D – 5, E-4", "A- 5, B-4, C-2, D – 3, E-1"],
+    "answer": "A- 4, B-5, C-2, D –3, E-1",
+    "image": null
+  },
+  {
+    "question": "The relationship between sucker fish and shark is...........",
+    "options": ["Competition", "Commensalism", "Predation", "Parasitism"],
+    "answer": "Commensalism",
+    "image": null
+  },
+  {
+    "question": "Which of the following is correct for r-selected species",
+    "options": ["Large number of progeny with small size", "large number of progeny with large size", "small number of progeny with small size", "small number of progeny with large size"],
+    "answer": "Large number of progeny with small size",
+    "image": null
+  },
+  {
+    "question": "Animals that can move from fresh water to sea called as.....",
+    "options": ["Stenothermal", "Eurythermal", "Catadromous", "Anadromous"],
+    "answer": "Catadromous",
+    "image": null
+  },
+  {
+    "question": "Some organisms are able to maintain homeostasis by physical means ...",
+    "options": ["Conform", "Regulate", "Migrate", "Suspend"],
+    "answer": "Regulate",
+    "image": null
+  }
+]

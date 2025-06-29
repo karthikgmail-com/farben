@@ -1,0 +1,92 @@
+[
+  {
+    "question": "Which of the following is an autoimmune disease?",
+    "options": ["Myasthenia gravis", "Muscular dystrophy", "Arthritis", "Osteoporosis"],
+    "answer": "Myasthenia gravis",
+    "image": null
+  },
+  {
+    "question": "The exaggerated response of the immune system to certain antigens is called",
+    "options": ["Primary response", "Secondary response", "Immunity", "Allergy"],
+    "answer": "Allergy",
+    "image": null
+  },
+  {
+    "question": "Vaccines are available for",
+    "options": ["Poliomyelitis, Diphtheria, Pneumonia and Tetanus", "Tuberculosis, Chicken pox, Measles and Mumps", "Cancer, AIDS, Allergy and Diabetes", "Both a and b"],
+    "answer": "Both a and b",
+    "image": null
+  },
+  {
+    "question": "The term ‘vaccine’ was coined by",
+    "options": ["Edward Jenner", "Louis Pasteur", "Robert Koch", "George Snell"],
+    "answer": "Louis Pasteur",
+    "image": null
+  },
+  {
+    "question": "The first vaccine was developed by",
+    "options": ["Edward Jenner", "Louis Pasteur", "Robert Koch", "George Snell"],
+    "answer": "Edward Jenner",
+    "image": null
+  },
+  {
+    "question": "Which form of pathogen is used in vaccination?",
+    "options": ["Activated and strong pathogenic antigens", "Inactivated and weakened pathogenic antigens", "Hypertonic solution", "Hypotonic solution"],
+    "answer": "Inactivated and weakened pathogenic antigens",
+    "image": null
+  },
+  {
+    "question": "Transplantation of tissues/organs fails often due to non-acceptance by the patient’s body. Which type of immune response is responsible for such rejections?",
+    "options": ["Cell-mediated immune response", "Humoral immune response", "Physiological immune response", "Autoimmune response"],
+    "answer": "Cell-mediated immune response",
+    "image": null
+  },
+  {
+    "question": "Which of the following are reasons for Rheumatoid arthritis? Choose the correct option.\ni) Lymphocytes become more active\nii) Body attacks self cells\niii) More antibodies are produced in the body\niv) The ability to differentiate pathogens or foreign molecules from self cells is lost",
+    "options": ["i and ii", "ii and iv", "iii and iv", "i and iii"],
+    "answer": "ii and iv",
+    "image": null
+  },
+  {
+    "question": "‘Antigen’ is a substance which",
+    "options": ["Lowers body temperature", "Destroys antibodies", "Triggers the immune system", "Is a component of antibody"],
+    "answer": "Triggers the immune system",
+    "image": null
+  },
+  {
+    "question": "The active form of Entamoeba histolytica feeds upon:",
+    "options": ["food in intestine", "blood only", "erythrocytes, mucosa and submucosa of colon", "mucosa and submucosa of colon only"],
+    "answer": "erythrocytes, mucosa and submucosa of colon",
+    "image": null
+  },
+  {
+    "question": "Which of the following is a pair of viral diseases?",
+    "options": ["Common cold, AIDS", "Dysentery, Common cold", "Typhoid, Tuberculosis", "Ringworm, AIDS"],
+    "answer": "Common cold, AIDS",
+    "image": null
+  },
+  {
+    "question": "Which of the following diseases is confirmed by ‘Widal test’?",
+    "options": ["Typhoid", "Plague", "Malaria", "Tuberculosis"],
+    "answer": "Typhoid",
+    "image": null
+  },
+  {
+    "question": "The infective stage of Plasmodium to man is:",
+    "options": ["Merozoite", "Sporozoite", "Cryptozoite", "None of the above"],
+    "answer": "Sporozoite",
+    "image": null
+  },
+  {
+    "question": "Which one of the following diseases cannot be cured by taking antibiotics?",
+    "options": ["Plague", "Amoebiasis", "Leprosy", "Whooping cough"],
+    "answer": "Amoebiasis",
+    "image": null
+  },
+  {
+    "question": "Carcinoma refers to",
+    "options": ["Malignant tumours of the connective tissue", "Malignant tumours of the skin or mucous membrane", "Malignant tumours of the colon", "Malignant tumours of the immune system"],
+    "answer": "Malignant tumours of the skin or mucous membrane",
+    "image": null
+  }
+]

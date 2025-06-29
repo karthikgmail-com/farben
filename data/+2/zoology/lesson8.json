@@ -1,0 +1,80 @@
+[
+  {
+    "question": "A 30 year old woman has bleedy diarrhoea for the past 14 hours, which one of the following organisms is likely to cause this illness?",
+    "options": ["Streptococcus pyogens", "Clostridium difficile", "Shigella dysenteriae", "Salmonella enteritidis"],
+    "answer": "Shigella dysenteriae",
+    "image": null
+  },
+  {
+    "question": "Exo-erythrocytic schizogony of Plasmodium takes place in ---------",
+    "options": ["RBC", "Leucocytes", "Stomach", "Liver"],
+    "answer": "Liver",
+    "image": null
+  },
+  {
+    "question": "The sporozoites of Plasmodium vivax are formed from -------------",
+    "options": ["Gametocytes", "Sporoblasts", "Oocysts", "Spores"],
+    "answer": "Oocysts",
+    "image": null
+  },
+  {
+    "question": "Amphetamines are stimulants of the CNS, whereas barbiturates are ----",
+    "options": ["CNS stimulant", "both a and b", "hallucinogenic", "CNS depressants"],
+    "answer": "CNS depressants",
+    "image": null
+  },
+  {
+    "question": "Choose the correctly match pair.",
+    "options": ["Amphetamines - Stimulant", "LSD - Narcotic", "Heroin - Psychotropic", "Benzodiazepine - Pain killer"],
+    "answer": "Amphetamines - Stimulant",
+    "image": null
+  },
+  {
+    "question": "The Athlete’s foot disease in human is caused by-------",
+    "options": ["Bacteria", "Fungi", "Virus", "Protozoan"],
+    "answer": "Fungi",
+    "image": null
+  },
+  {
+    "question": "Cirrhosis of liver is caused by chronic intake of ------",
+    "options": ["Opium", "Alcohol", "Tobacco", "Cocaine"],
+    "answer": "Alcohol",
+    "image": null
+  },
+  {
+    "question": "The sporozoite of the malarial parasite is present in ----",
+    "options": ["saliva of infected female Anopheles mosquito.", "RBC of human suffering from malaria.", "Spleen of infected humans.", "Gut of female Anopheles mosquito."],
+    "answer": "saliva of infected female Anopheles mosquito.",
+    "image": null
+  },
+  {
+    "question": "Match the pathogens with respective diseases caused by them and select the correct match using the codes given below.\nA. Leishmania donavani - i. Amoebiasis\nB. Wuchereria bancrofti - ii. Kala – azar\nC. Trypanosoma gambiense - iii. Sleeping sickness\nD. Entamoeba histolytica - iv. Filariasis",
+    "options": ["A-ii, B-iv, C-iii, D-i", "A-ii, B-iv, C-i, D-iii", "A-iii, B-i, C-ii, D-iv", "A-i, B-iv, C-iii, D-ii"],
+    "answer": "A-ii, B-iv, C-iii, D-i",
+    "image": null
+  },
+  {
+    "question": "Paratope is an",
+    "options": ["Antibody binding site on variable regions", "Antibody binding site on heavy regions", "Antigen binding site on variable regions", "Antigen binding site on heavy regions"],
+    "answer": "Antigen binding site on variable regions",
+    "image": null
+  },
+  {
+    "question": "Allergy involves",
+    "options": ["IgE", "IgG", "lgA", "IgM"],
+    "answer": "IgE",
+    "image": null
+  },
+  {
+    "question": "Spread of cancerous cells to distant sites is termed as",
+    "options": ["Metastasis", "Oncogenes", "Proto-oncogenes", "Malignant neoplasm"],
+    "answer": "Metastasis",
+    "image": null
+  },
+  {
+    "question": "B cells that produce and release large amounts of antibody are called",
+    "options": ["Memory cells", "Basophils", "Plasma cells", "killer cells"],
+    "answer": "Plasma cells",
+    "image": null
+  }
+]

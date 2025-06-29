@@ -1,0 +1,86 @@
+[
+  {
+    "question": "Hershey and Chase experiment with bacteriophage showed that",
+    "options": ["Protein gets into the bacterial cells", "DNA is the genetic material", "DNA contains radioactive sulphur", "Viruses undergo transformation"],
+    "answer": "DNA is the genetic material",
+    "image": null
+  },
+  {
+    "question": "DNA and RNA are similar with respect to",
+    "options": ["Thymine as a nitrogen base", "A single-stranded helix shape", "Nucleotide containing sugars, nitrogen bases and phosphates", "The same sequence of nucleotides for the amino acid phenyl alanine"],
+    "answer": "Nucleotide containing sugars, nitrogen bases and phosphates",
+    "image": null
+  },
+  {
+    "question": "A mRNA molecule is produced by",
+    "options": ["Replication", "Transcription", "Duplication", "Translation"],
+    "answer": "Transcription",
+    "image": null
+  },
+  {
+    "question": "The total number of nitrogenous bases in human genome is estimated to be about",
+    "options": ["3.5 million", "35000", "35 million", "3.1 billion"],
+    "answer": "3.1 billion",
+    "image": null
+  },
+  {
+    "question": "E. coli cell grown on 15N medium are transferred to 14N medium and allowed to grow for two generations. DNA extracted from these cells is ultracentrifuged in a cesium chloride density gradient. What density distribution of DNA would you expect in this experiment?",
+    "options": ["One high and one low density band.", "One intermediate density band.", "One high and one intermediate density band.", "One low and one intermediate density band."],
+    "answer": "One intermediate density band.",
+    "image": null
+  },
+  {
+    "question": "What is the basis for the difference in the synthesis of the leading and lagging strand of DNA molecules?",
+    "options": ["Origin of replication occurs only at the 5' end of the molecules.", "DNA ligase works only in the 3' → 5' direction.", "DNA polymerase can join new nucleotides only to the 3' end of the growing stand.", "Helicases and single-strand binding proteins that work at the 5' end."],
+    "answer": "DNA polymerase can join new nucleotides only to the 3' end of the growing stand.",
+    "image": null
+  },
+  {
+    "question": "Which of the following is the correct sequence of event with reference to the central dogma?",
+    "options": ["Transcription, Translation, Replication", "Transcription, Replication, Translation", "Duplication, Translation, Transcription", "Replication, Transcription, Translation"],
+    "answer": "Replication, Transcription, Translation",
+    "image": null
+  },
+  {
+    "question": "Which of the following statements about DNA replication is not correct?",
+    "options": ["Unwinding of DNA molecule occurs as hydrogen bonds break.", "Replication occurs as each base is paired with another exactly like it.", "Process is known as semi conservative replication because one old strand is conserved in the new molecule.", "Complementary base pairs are held together with hydrogen bonds."],
+    "answer": "Replication occurs as each base is paired with another exactly like it.",
+    "image": null
+  },
+  {
+    "question": "Which of the following statements is not true about DNA replication in eukaryotes?",
+    "options": ["Replication begins at a single origin of replication.", "Replication is bidirectional from the origins.", "Replication occurs at about 1 million base pairs per minute.", "There are numerous different bacterial chromosomes, with replication ocurring in each at the same time."],
+    "answer": "Replication begins at a single origin of replication.",
+    "image": null
+  },
+  {
+    "question": "The first codon to be deciphered was ________ which codes for ________.",
+    "options": ["AAA, proline", "GGG, alanine", "UUU, Phenylalanine", "TTT, arginine"],
+    "answer": "UUU, Phenylalanine",
+    "image": null
+  },
+  {
+    "question": "Meselson and Stahl’s experiment proved",
+    "options": ["Transduction", "Transformation", "DNA is the genetic material", "Semi-conservative nature of DNA replication"],
+    "answer": "Semi-conservative nature of DNA replication",
+    "image": null
+  },
+  {
+    "question": "Ribosomes are composed of two subunits; the smaller subunit of a ribosome has a binding site for _________ and the larger subunit has two binding sites for two _________.",
+    "options": ["mRNA; tRNA", "tRNA; mRNA", "mRNA; mRNA", "tRNA; tRNA"],
+    "answer": "mRNA; tRNA",
+    "image": null
+  },
+  {
+    "question": "An operon is a:",
+    "options": ["Protein that suppresses gene expression", "Protein that accelerates gene expression", "Cluster of structural genes with related function", "Gene that switches other genes on or off"],
+    "answer": "Cluster of structural genes with related function",
+    "image": null
+  },
+  {
+    "question": "When lactose is present in the culture medium:",
+    "options": ["Transcription of lac y, lac z, lac a genes occurs.", "Repressor is unable to bind to the operator.", "Repressor is able to bind to the operator.", "Both (a) and (b) are correct."],
+    "answer": "Both (a) and (b) are correct.",
+    "image": null
+  }
+]

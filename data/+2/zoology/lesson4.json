@@ -1,0 +1,128 @@
+[
+  {
+    "question": "Haemophilia is more common in males because it is a",
+    "options": ["Recessive character carried by Y-chromosome", "Dominant character carried by Y-chromosome", "Dominant trait carried by X-chromosome", "Recessive trait carried by X-chromosome"],
+    "answer": "Recessive trait carried by X-chromosome",
+    "image": null
+  },
+  {
+    "question": "ABO blood group in man is controlled by",
+    "options": ["Multiple alleles", "Lethal genes", "Sex linked genes", "Y-linked genes"],
+    "answer": "Multiple alleles",
+    "image": null
+  },
+  {
+    "question": "Three children of a family have blood groups A, AB and B. What could be the genotypes of their parents?",
+    "options": ["IA IA and Io Io", "IA Io and IB Io", "IB IB and IA IA", "IA Io and Io Io"],
+    "answer": "IA Io and IB Io",
+    "image": null
+  },
+  {
+    "question": "Which of the following is not correct?",
+    "options": ["Three or more alleles of a trait in the population are called multiple alleles.", "A normal gene undergoes mutations to form many alleles.", "Multiple alleles map at different loci of a chromosome.", "A diploid organism has only two alleles out of many in the population."],
+    "answer": "Multiple alleles map at different loci of a chromosome.",
+    "image": null
+  },
+  {
+    "question": "Which of the following phenotypes in the progeny are possible from the parental combination AxB?",
+    "options": ["A and B only", "A, B and AB only", "AB only", "A, B, AB and O"],
+    "answer": "A, B and AB only",
+    "image": null
+  },
+  {
+    "question": "Which of the following phenotypes is not possible in the progeny of the parental genotypic combination IAIO X IAIB?",
+    "options": ["AB", "O", "A", "B"],
+    "answer": "B",
+    "image": null
+  },
+  {
+    "question": "Which of the following is true about Rh factor in the offspring of a parental combination Dd x Dd (both Rh positive)?",
+    "options": ["All will be Rh positive", "Half will be Rh positive", "About ¾ will be Rh negative", "About one fourth will be Rh negative"],
+    "answer": "Half will be Rh positive",
+    "image": null
+  },
+  {
+    "question": "What can be the blood group of offspring when both parents have AB blood group?",
+    "options": ["AB only", "A, B and AB", "A, B, AB and O", "A and B only"],
+    "answer": "A, B and AB",
+    "image": null
+  },
+  {
+    "question": "If the child's blood group is ‘O’ and father's blood group is ‘A’ and mother’s blood group is ‘B’ the genotype of the parents will be",
+    "options": ["IA IA and IB Io", "IA Io and IB Io", "IA Io and Io Io", "Io Io and IB IB"],
+    "answer": "IA Io and IB Io",
+    "image": null
+  },
+  {
+    "question": "XO type of sex determination and XY type of sex determination are examples of",
+    "options": ["Male heterogamety", "Female heterogamety", "Male homogamety", "Both (b) and (c)"],
+    "answer": "Male homogamety",
+    "image": null
+  },
+  {
+    "question": "In an accident there is great loss of blood and there is no time to analyse the blood group which blood can be safely transferred?",
+    "options": ["O and Rh negative", "O and Rh positive", "B and Rh negative", "AB and Rh positive"],
+    "answer": "O and Rh negative",
+    "image": null
+  },
+  {
+    "question": "Father of a child is colourblind and mother is carrier for colourblindness, the probability of the child being colourblind is",
+    "options": ["25%", "50%", "100%", "75%"],
+    "answer": "50%",
+    "image": null
+  },
+  {
+    "question": "A marriage between a colourblind man and a normal woman produces",
+    "options": ["All carrier daughters and normal sons", "50% carrier daughters and 50% normal daughters", "50% colourblind sons and 50% normal sons", "All carrier offspring"],
+    "answer": "50% colourblind sons and 50% normal sons",
+    "image": null
+  },
+  {
+    "question": "Down's syndrome is a genetic disorder which is caused by the presence of an extra chromosome number",
+    "options": ["20", "21", "4", "23"],
+    "answer": "21",
+    "image": null
+  },
+  {
+    "question": "Klinefelters’ syndrome is characterized by a karyotype of",
+    "options": ["XYY", "XO", "XXX", "XXY"],
+    "answer": "XXY",
+    "image": null
+  },
+  {
+    "question": "Females with Turner’s syndrome have",
+    "options": ["Small uterus", "Rudimentary ovaries", "Underdeveloped breasts", "All of these"],
+    "answer": "All of these",
+    "image": null
+  },
+  {
+    "question": "Patau's syndrome is also referred to as",
+    "options": ["13-Trisomy", "18-Trisomy", "21-Trisomy", "None of these"],
+    "answer": "13-Trisomy",
+    "image": null
+  },
+  {
+    "question": "“Universal Donor” and “Universal Recipients” blood group are _____ and ______ respectively",
+    "options": ["AB, O", "O, AB", "A, B", "B, A"],
+    "answer": "O, AB",
+    "image": null
+  },
+  {
+    "question": "ZW-ZZ system of sex determination occurs in",
+    "options": ["Fishes", "Reptiles", "Birds", "All of these"],
+    "answer": "Birds",
+    "image": null
+  },
+  {
+    "question": "Co-dominant blood group is",
+    "options": ["A", "AB", "B", "O"],
+    "answer": "AB",
+    "image": null
+  },
+  {
+    "question": "Which of the following is incorrect regarding ZW-ZZ type of sex determination?",
+    "options": ["It occurs in birds and some reptiles", "Females are homogametic and males are heterogametic", "Males produce one type of gamete", "It occurs in gypsy moth"],
+    "answer": "It occurs in gypsy moth",
+    "image": null
+  }
+]

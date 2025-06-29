@@ -1,0 +1,56 @@
+[
+  {
+    "question": "Which of the following is correct regarding HIV, hepatitis B, gonorrhoea and trichomoniasis?",
+    "options": ["Gonorrhoea is a STD whereas others are not.", "Trichomoniasis is a viral disease whereas others are bacterial.", "HIV is a pathogen whereas others are diseases.", "Hepatitis B is eradicated completely whereas others are not."],
+    "answer": "Gonorrhoea is a STD whereas others are not.",
+    "image": null
+  },
+  {
+    "question": "Which one of the following groups includes sexually transmitted diseases caused by bacteria only?",
+    "options": ["Syphilis, gonorrhoea and candidiasis", "Syphilis, chlamydiasis and gonorrhoea", "Syphilis, gonorrhoea and trichomoniasis", "Syphilis, trichomoniasis and pediculosis"],
+    "answer": "Syphilis, chlamydiasis and gonorrhoea",
+    "image": null
+  },
+  {
+    "question": "Identify the correct statements from the following",
+    "options": ["Chlamydiasis is a viral disease.", "Gonorrhoea is caused by a spirochaete bacterium, Treponema palladium.", "The incubation period for syphilis is 2 to 14 days in males and 7 to 21 days in females.", "Both syphilis and gonorrhoea are easily cured with antibiotics."],
+    "answer": "The incubation period for syphilis is 2 to 14 days in males and 7 to 21 days in females.",
+    "image": null
+  },
+  {
+    "question": "A contraceptive pill prevents ovulation by",
+    "options": ["blocking fallopian tube", "inhibiting release of FSH and LH", "stimulating release of FSH and LH", "causing immediate degeneration of released ovum"],
+    "answer": "inhibiting release of FSH and LH",
+    "image": null
+  },
+  {
+    "question": "The approach which does not give the defined action of contraceptive is",
+    "options": ["Hormonal contraceptive: Prevents entry of sperms, prevent ovulation and fertilization", "Vasectomy: Prevents spermatogenesis", "Barrier method: Prevents fertilization", "Intrauterine device: Increases phagocytosis of sperms, suppresses sperm motility and fertilizing capacity of sperms"],
+    "answer": "Intrauterine device: Increases phagocytosis of sperms, suppresses sperm motility and fertilizing capacity of sperms",
+    "image": null
+  },
+  {
+    "question": "Read the given statements and select the correct option. Statement 1: Diaphragms, cervical caps and vaults are made of rubber and are inserted into the female reproductive tract to cover the cervix before coitus. Statement 2: They are chemical barriers of conception and are reusable.",
+    "options": ["Both statements 1 and 2 are correct and statement 2 is the correct explanation of statement 1.", "Both statements 1 and 2 are correct but statement 2 is not the correct explanation of statement 1.", "Statement 1 is correct but statement 2 is incorrect.", "Both statements 1 and 2 are incorrect."],
+    "answer": "Both statements 1 and 2 are correct and statement 2 is the correct explanation of statement 1.",
+    "image": null
+  },
+  {
+    "question": "Match column I with column II and select the correct option from the codes given below. Column I Column II A. Copper releasing IUD (i) LNG-20 B. Hormone releasing (ii) Lippes loop IUD C. Non medicated IUD (iii) Saheli D. Mini pills (iv) Multiload-375",
+    "options": ["A-(iv), B-(ii), C-(i), D-(iii)", "A-(iv), B-(i), C-(ii), D-(iii)", "A-(i), B-(iv), C-(ii), D-(iii)", "A-(iv), B-(i), C-(iii), D-(ii)"],
+    "answer": "A-(iv), B-(i), C-(ii), D-(iii)",
+    "image": null
+  },
+  {
+    "question": "Select the incorrect action of hormonal contraceptive pills from the following",
+    "options": ["Inhibition of spermatogenesis.", "Inhibition of ovulation.", "Changes in cervical mucus impairing its ability to allow passage and transport of sperms.", "Alteration in uterine endometrium to make it unsuitable for implantation."],
+    "answer": "Inhibition of spermatogenesis.",
+    "image": null
+  },
+  {
+    "question": "Correct the following statements",
+    "options": ["Transfer of an ovum collected from donor into the fallopian tube is called ZIFT.", "Transferring of an embryo with more than 8 blastomeres into uterus is called GIFT.", "Multiload 375 is a hormone releasing IUD.", "Not Applicable / No fourth option"],
+    "answer": "Transferring of an embryo with more than 8 blastomeres into uterus is called GIFT.",
+    "image": null
+  }
+]
